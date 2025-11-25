@@ -1,0 +1,13 @@
+<sl-dropdown>
+  <sl-button class="dropdown-button--primary" slot="trigger" caret>{{
+    localeIdText() | uppercase
+  }}</sl-button>
+  <div class="dropdown__content-container">
+    <div class="dropdown__item-container">
+      <a i18n [href]="'/es' + router.url">ES-ES</a>
+    </div>
+    <div class="dropdown__item-container">
+      <a i18n [href]="router.url">EN-US</a>
+    </div>
+  </div>
+</sl-dropdown>

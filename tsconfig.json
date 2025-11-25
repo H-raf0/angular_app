@@ -1,0 +1,46 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "noUnusedLocals": true,
+    "exactOptionalPropertyTypes": true,
+    "useDefineForClassFields": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2023",
+    "module": "ES2022",
+    "lib": ["ES2023", "dom"],
+    "paths": {
+      "~environments/*": ["src/environments/*"],
+      "~locale/*": ["src/locale/*"],
+      "~core/*": ["src/app/core/*"],
+      "~shared/*": ["src/app/shared/*"],
+      "~features/*": ["src/app/features/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "strictDomEventTypes": true,
+    "typeCheckHostBindings": true,
+    "strictStandalone": true
+  }
+}

@@ -1,0 +1,78 @@
+<main>
+  <h1 class="first-heading__title" i18n data-testid="login-title">¡Welcome back!</h1>
+  <form class="form__container login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
+    <div class="form-control__container">
+      <sl-input
+        class="input--primary"
+        placeholder="Enter your email"
+        label="Email"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        appLowercase
+        appTrim
+        required
+        ngDefaultControl
+        [attr.help-text]="
+          formState().isSubmitted && formControls.email.invalid ? translations.emailHelpText : ''
+        "
+        [formControl]="formControls.email"
+      >
+        <sl-icon name="person-circle" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        type="password"
+        class="input--primary"
+        placeholder="Enter your password"
+        password-toggle
+        label="Password"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        required
+        ngDefaultControl
+        [attr.help-text]="
+          formState().isSubmitted && formControls.password.invalid
+            ? translations.passwordHelpText
+            : ''
+        "
+        [formControl]="formControls.password"
+      >
+        <sl-icon name="lock" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-button
+        class="button--primary"
+        size="medium"
+        pill
+        type="submit"
+        [disabled]="formState().isLoading"
+        [attr.loading]="formState().isLoading || null"
+      >
+        <ng-container i18n>Enter</ng-container>
+      </sl-button>
+    </div>
+    <div>
+      <p class="form-footer__paragraph">
+        <a class="form-footer__link" [routerLink]="authUrls.register">
+          <ng-container i18n>Don't have an account yet? Register</ng-container>
+        </a>
+      </p>
+    </div>
+    <div class="login__image-container">
+      <img
+        class="login__image"
+        alt="pokemon pikachu"
+        i18n-alt
+        ngSrc="angularexampleapp/assets/images/pikachu.png"
+        width="200"
+        height="200"
+      />
+    </div>
+  </form>
+</main>

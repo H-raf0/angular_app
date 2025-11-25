@@ -1,0 +1,11 @@
+<app-toast-stack />
+<div class="app__main-container">
+  <app-header />
+  <div class="app__page-container">
+    @defer (on timer(1500)) {
+      <app-cookie-popup />
+    }
+    <router-outlet />
+  </div>
+  <app-footer />
+</div>

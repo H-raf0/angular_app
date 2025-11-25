@@ -1,0 +1,502 @@
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8083833302822858845" datatype="html">
+        <source>¡Welcome back!</source>
+        <target state="new">¡Bienvenido de nuevo!</target>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target state="new">Contraseña</target>
+      </trans-unit>
+      <trans-unit id="7016790272435410171" datatype="html">
+        <source>Enter</source>
+        <target state="new">Entrar</target>
+      </trans-unit>
+      <trans-unit id="3301086086650990787" datatype="html">
+        <source>Register</source>
+        <target state="new">Regístrate</target>
+      </trans-unit>
+      <trans-unit id="3706454661895788858" datatype="html">
+        <source>Field required.</source>
+        <target state="new">Campo requerido</target>
+      </trans-unit>
+      <trans-unit id="9015979275910770507" datatype="html">
+        <source>Must contain at least one lowercase letter, one uppercase letter and one number. No special characters.</source>
+        <target state="new">La contraseña debe contener al menos una letra minúscula, una mayúscula y un número. No se admiten caracteres especiales.</target>
+      </trans-unit>
+      <trans-unit id="771984667796132675" datatype="html">
+        <source>Angular Example App</source>
+        <target state="new">Angular Example App ES</target>
+      </trans-unit>
+      <trans-unit id="4763932744918921654" datatype="html">
+        <source>What&apos;s your favourite pokemon?</source>
+        <target state="new">¿Cuál es tu Pokémon favorito?</target>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <target state="new">Inicio</target>
+      </trans-unit>
+      <trans-unit id="2336550011721758066" datatype="html">
+        <source>Log in</source>
+        <target state="new">Iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="7507948636555938109" datatype="html">
+        <source>Log out</source>
+        <target state="new">Cerrar sesión</target>
+      </trans-unit>
+      <trans-unit id="8563030151048628698" datatype="html">
+        <source>pokemon image</source>
+        <target state="new">imagen de pokemon</target>
+      </trans-unit>
+      <trans-unit id="3382844245855508721" datatype="html">
+        <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </source>
+        <target state="new"> Este sitio utiliza Google Tag Manager y Google Analytics para que funcione sin problemas y también para entender cómo se comportan los usuarios. </target>
+      </trans-unit>
+      <trans-unit id="5553776930806289663" datatype="html">
+        <source>Ok, got it!</source>
+        <target state="new">¡Ok, entendido!</target>
+      </trans-unit>
+      <trans-unit id="4480466648551521017" datatype="html">
+        <source>Error 404: A Wild Error Appeared</source>
+        <target state="new">Error 404: Ha aparecido un error salvaje</target>
+      </trans-unit>
+      <trans-unit id="6448505059864540544" datatype="html">
+        <source>ash and pikachu sad</source>
+        <target state="new">Ash y Pikachu tristes</target>
+      </trans-unit>
+      <trans-unit id="8413653130434546022" datatype="html">
+        <source>Angular</source>
+        <target state="new">Angular</target>
+      </trans-unit>
+      <trans-unit id="7023829683035637619" datatype="html">
+        <source>Angular blog</source>
+        <target state="new">Blog de Angular</target>
+      </trans-unit>
+      <trans-unit id="7751010942038334793" datatype="html">
+        <source>Blog</source>
+        <target state="new">Blog</target>
+      </trans-unit>
+      <trans-unit id="2995774437111770399" datatype="html">
+        <source>X</source>
+        <target state="new">X</target>
+      </trans-unit>
+      <trans-unit id="8401085193044135025" datatype="html">
+        <source>YouTube</source>
+        <target state="new">YouTube</target>
+      </trans-unit>
+      <trans-unit id="3385320857836800705" datatype="html">
+        <source>Join the discussions at Angular Community Discord server.</source>
+        <target state="new">Únete a las discusiones en el servidor de Discord de la comunidad Angular.</target>
+      </trans-unit>
+      <trans-unit id="4182095487772075673" datatype="html">
+        <source> Discord </source>
+        <target state="new"> Discord </target>
+      </trans-unit>
+      <trans-unit id="1534029177398918729" datatype="html">
+        <source>GitHub</source>
+        <target state="new">GitHub</target>
+      </trans-unit>
+      <trans-unit id="2999632421041217652" datatype="html">
+        <source>Contribute to Angular Example App</source>
+        <target state="new">Contribuir a Angular Example App</target>
+      </trans-unit>
+      <trans-unit id="2156635906230663334" datatype="html">
+        <source> Contribute </source>
+        <target state="new"> Contribuir </target>
+      </trans-unit>
+      <trans-unit id="3570800946906329961" datatype="html">
+        <source>Post issues and suggestions on github.</source>
+        <target state="new">Publica problemas y sugerencias en github.</target>
+      </trans-unit>
+      <trans-unit id="4583602242273481020" datatype="html">
+        <source> Report Issues </source>
+        <target state="new"> Reportar problemas </target>
+      </trans-unit>
+      <trans-unit id="2446117790692479672" datatype="html">
+        <source>Resources</source>
+        <target state="new">Recursos</target>
+      </trans-unit>
+      <trans-unit id="4982761710982945838" datatype="html">
+        <source>Stack Overflow: where the community answers your technical Angular questions.</source>
+        <target state="new">Stack Overflow: donde la comunidad responde a tus preguntas técnicas sobre Angular.</target>
+      </trans-unit>
+      <trans-unit id="6561048040308058569" datatype="html">
+        <source> Stack Overflow </source>
+        <target state="new"> Stack Overflow </target>
+      </trans-unit>
+      <trans-unit id="8520351263082417377" datatype="html">
+        <source>Angular Google Developer Experts</source>
+        <target state="new">Expertos en Google Developer de Angular</target>
+      </trans-unit>
+      <trans-unit id="4346349683507785886" datatype="html">
+        <source> Angular Google Developer Experts </source>
+        <target state="new"> Expertos en Google Developer de Angular </target>
+      </trans-unit>
+      <trans-unit id="1949800099101277248" datatype="html">
+        <source>Languages</source>
+        <target state="new">Idiomas</target>
+      </trans-unit>
+      <trans-unit id="5866254605255506989" datatype="html">
+        <source>English</source>
+        <target state="new">Inglés</target>
+      </trans-unit>
+      <trans-unit id="1206520795340730278" datatype="html">
+        <source>English (US)</source>
+        <target state="new">Inglés (EE.UU.)</target>
+      </trans-unit>
+      <trans-unit id="7535527225967694107" datatype="html">
+        <source>Español</source>
+        <target state="new">Español</target>
+      </trans-unit>
+      <trans-unit id="4176833090298296042" datatype="html">
+        <source> Español (España)</source>
+        <target state="new"> Español (España)</target>
+      </trans-unit>
+      <trans-unit id="6692431734660320901" datatype="html">
+        <source> ©2016-2025. Code licensed under a <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>MIT License<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/></source>
+        <target state="new"> ©2016-2025. Código con licencia bajo <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>Licencia MIT<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;">.</x></target>
+      </trans-unit>
+      <trans-unit id="8146468428782651144" datatype="html">
+        <source>License text</source>
+        <target state="new">Texto de licencia</target>
+      </trans-unit>
+      <trans-unit id="5575467067123609782" datatype="html">
+        <source>angular logo</source>
+        <target state="new">logo de angular</target>
+      </trans-unit>
+      <trans-unit id="6066456905066879060" datatype="html">
+        <source>ES-ES</source>
+        <target state="new">ES-ES</target>
+      </trans-unit>
+      <trans-unit id="2820549809276148270" datatype="html">
+        <source>EN-US</source>
+        <target state="new">EN-US</target>
+      </trans-unit>
+      <trans-unit id="203827529942340818" datatype="html">
+        <source>Enter your email</source>
+        <target state="new">Introduce tu correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <target state="new">Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="2772023564304193657" datatype="html">
+        <source>Enter your password</source>
+        <target state="new">Introduce tu contraseña</target>
+      </trans-unit>
+      <trans-unit id="8183540845277493557" datatype="html">
+        <source>Don&apos;t have an account yet? Register</source>
+        <target state="new">¿Aún no tienes cuenta? Regístrate</target>
+      </trans-unit>
+      <trans-unit id="8893390761160292681" datatype="html">
+        <source>My account</source>
+        <target state="new">Mi cuenta</target>
+      </trans-unit>
+      <trans-unit id="3264452655068017433" datatype="html">
+        <source>Enter your name</source>
+        <target state="new">Introduce tu nombre</target>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target state="new">Nombre</target>
+      </trans-unit>
+      <trans-unit id="2826581353496868063" datatype="html">
+        <source>Language</source>
+        <target state="new">Idioma</target>
+      </trans-unit>
+      <trans-unit id="1448946353661594760" datatype="html">
+        <source>Español (España)</source>
+        <target state="new">Español (España)</target>
+      </trans-unit>
+      <trans-unit id="1463997545495016475" datatype="html">
+        <source>Your favourite pokemon is:</source>
+        <target state="new">Tu Pokémon favorito es:</target>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target state="new">Guardar</target>
+      </trans-unit>
+      <trans-unit id="2041654170011922770" datatype="html">
+        <source>ash standing</source>
+        <target state="new">ash de pie</target>
+      </trans-unit>
+      <trans-unit id="5418525007522184600" datatype="html">
+        <source> ¡Register and complete your Pokédex! </source>
+        <target state="new"> ¡Regístrate y completa tu Pokédex! </target>
+      </trans-unit>
+      <trans-unit id="3129358389635860873" datatype="html">
+        <source>Retype the password</source>
+        <target state="new">Vuelve a escribir la contraseña</target>
+      </trans-unit>
+      <trans-unit id="3782563238994348625" datatype="html">
+        <source>Confirm password</source>
+        <target state="new">Confirmar contraseña</target>
+      </trans-unit>
+      <trans-unit id="7647115740628930372" datatype="html">
+        <source>Type a pokemon</source>
+        <target state="new">Escribe un Pokémon</target>
+      </trans-unit>
+      <trans-unit id="9023761150161723521" datatype="html">
+        <source> I’ve caught &apos;em all (the terms and privacy policy) and I’m cool with them! </source>
+        <target state="new"> He atrapado todos (los términos y la política de privacidad) y estoy de acuerdo con ellos! </target>
+      </trans-unit>
+      <trans-unit id="5907476126990913307" datatype="html">
+        <source>Create account</source>
+        <target state="new">Crear cuenta</target>
+      </trans-unit>
+      <trans-unit id="6470465744110022708" datatype="html">
+        <source>Do you have an account? Log in</source>
+        <target state="new">¿Tienes cuenta? Inicia sesión</target>
+      </trans-unit>
+      <trans-unit id="8515623719828483173" datatype="html">
+        <source> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </source>
+        <target state="new"> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </target>
+      </trans-unit>
+      <trans-unit id="5831080362044041624" datatype="html">
+        <source> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </source>
+        <target state="new"> Este proyecto es una aplicación actualizada y real que está diseñada como base para crear nuevos proyectos basados en Angular y también como un recurso para aprender. </target>
+      </trans-unit>
+      <trans-unit id="7358438134446811618" datatype="html">
+        <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
+        <target state="new"> Incluye características como internacionalización, standalone components, una estructura de carpetas más lógica, etc., lo que lo convierte en un excelente punto de partida para crear aplicaciones en Angular que escalen con facilidad y sean mantenibles. </target>
+      </trans-unit>
+      <trans-unit id="8976378127227472342" datatype="html">
+        <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
+        <target state="new"> Ya sea que busques una plantilla o un proyecto base sólido, esta configuración está diseñada para ayudarte a crear código limpio y mantenible con facilidad. </target>
+      </trans-unit>
+      <trans-unit id="8795992692534730306" datatype="html">
+        <source> This project leverages the <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> to provide fun and practical examples, making it easier to understand key concepts in Angular development. By using data from the Pokémon universe, it offers a familiar and engaging way to showcase features like fetching data, handling API calls, and displaying dynamic content. </source>
+        <target state="new"> Este proyecto aprovecha la <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> para proporcionar ejemplos divertidos y prácticos, facilitando la comprensión de conceptos clave en el desarrollo de Angular. Al usar datos del universo Pokémon, ofrece una forma familiar y atractiva de mostrar características como la obtención de datos, el manejo de llamadas API y la visualización de contenido dinámico. </target>
+      </trans-unit>
+      <trans-unit id="5023424198144676396" datatype="html">
+        <source>Key features</source>
+        <target state="new">Características clave</target>
+      </trans-unit>
+      <trans-unit id="8461145943495811496" datatype="html">
+        <source>My Pokemon</source>
+        <target state="new">Mis Pokémon</target>
+      </trans-unit>
+      <trans-unit id="8314391617152635292" datatype="html">
+        <source> Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try using the search bar to track them down. Gotta catch ‘em all! </source>
+        <target state="new"> ¡Vaya, parece que no has atrapado ningún Pokémon aún! ¿Necesitas ayuda para encontrar uno? Intenta usar la barra de búsqueda para rastrearlos. ¡Hay que atraparlos a todos! </target>
+      </trans-unit>
+      <trans-unit id="5505216764235661105" datatype="html">
+        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
+        <target state="new"> 🎯 Bien atrapado, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! Estás un paso más cerca de ser un Maestro Pokémon—¡sigue así! 🌟 </target>
+      </trans-unit>
+      <trans-unit id="1335130496718084363" datatype="html">
+        <source>Already got this one, keep going!</source>
+        <target state="new">¡Este ya lo tienes, sigue adelante!</target>
+      </trans-unit>
+      <trans-unit id="1000621969408641474" datatype="html">
+        <source>Still gotta catch &apos;em all, this one&apos;s missing from your Pokédex!</source>
+        <target state="new">¡Aún te falta atraparlos todos, este falta en tu Pokédex!</target>
+      </trans-unit>
+      <trans-unit id="9030610327675553750" datatype="html">
+        <source> POKEBALL </source>
+        <target state="new"> POKÉBALL </target>
+      </trans-unit>
+      <trans-unit id="8844151061219581698" datatype="html">
+        <source>Trainer frame 1</source>
+        <target state="new">Marco del entrenador 1</target>
+      </trans-unit>
+      <trans-unit id="1944557953539728996" datatype="html">
+        <source>Trainer frame 2</source>
+        <target state="new">Marco del entrenador 2</target>
+      </trans-unit>
+      <trans-unit id="6083403403631944991" datatype="html">
+        <source>Trainer frame 3</source>
+        <target state="new">Marco del entrenador 3</target>
+      </trans-unit>
+      <trans-unit id="971297184908956530" datatype="html">
+        <source>Trainer frame 4</source>
+        <target state="new">Marco del entrenador 4</target>
+      </trans-unit>
+      <trans-unit id="3616505908279277966" datatype="html">
+        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></source>
+        <target state="new">N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></target>
+      </trans-unit>
+      <trans-unit id="5157210307460756815" datatype="html">
+        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.height }}"/> dm</source>
+        <target state="new">Altura: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</target>
+      </trans-unit>
+      <trans-unit id="1651947138133669" datatype="html">
+        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.weight }}"/> hg</source>
+        <target state="new">Peso: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</target>
+      </trans-unit>
+      <trans-unit id="4377004748613683272" datatype="html">
+        <source>Pokeball</source>
+        <target state="new">Pokeball</target>
+      </trans-unit>
+      <trans-unit id="6820690424571383768" datatype="html">
+        <source>My pokemon</source>
+        <target state="new">Mis Pokémon</target>
+      </trans-unit>
+      <trans-unit id="1543538730036692975" datatype="html">
+        <source>Passwords do not match.</source>
+        <target state="new">Las contraseñas no coinciden.</target>
+      </trans-unit>
+      <trans-unit id="8192371491020855861" datatype="html">
+        <source>Field required. PokeAPI does not found that pokemon name.</source>
+        <target state="new">Campo requerido. PokeAPI no encontró ese nombre de Pokémon.</target>
+      </trans-unit>
+      <trans-unit id="4201846903475880496" datatype="html">
+        <source>Find more!</source>
+        <target state="new">¡Encuentra más!</target>
+      </trans-unit>
+      <trans-unit id="7321419453389412321" datatype="html">
+        <source>Find a pokemon</source>
+        <target state="new">Encuentra un Pokémon</target>
+      </trans-unit>
+      <trans-unit id="4310922273540502870" datatype="html">
+        <source>Account settings saved. You&apos;re all set!</source>
+        <target state="new">Configuración de la cuenta guardada. ¡Todo listo!</target>
+      </trans-unit>
+      <trans-unit id="8355236492226718944" datatype="html">
+        <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
+        <target state="new">¡Vaya! Algo salió mal. Intenta nuevamente más tarde o deja un problema si persiste.</target>
+      </trans-unit>
+      <trans-unit id="3792117578788899429" datatype="html">
+        <source>Invalid credentials. Not very effective, try again!</source>
+        <target state="new">Credenciales inválidas. ¡No muy efectivo, intenta de nuevo!</target>
+      </trans-unit>
+      <trans-unit id="4022823352084662376" datatype="html">
+        <source>Register failed. This attempt wasn’t very effective, try again!</source>
+        <target state="new">Registro fallido. ¡Este intento no fue muy efectivo, intenta de nuevo!</target>
+      </trans-unit>
+      <trans-unit id="1711725680914111687" datatype="html">
+        <source>Pokémon not found. Double-check the name and try again!</source>
+        <target state="new">Pokémon no encontrado. ¡Verifica el nombre y vuelve a intentarlo!</target>
+      </trans-unit>
+      <trans-unit id="7680046165638889668" datatype="html">
+        <source>Unlock reactivity with Angular Signals.</source>
+        <target state="new">Desbloquea la reactividad con Angular Signals.</target>
+      </trans-unit>
+      <trans-unit id="7623666311824205556" datatype="html">
+        <source> Signals provide a declarative way to manage state and reactivity in your application, simplifying data flow and improving performance. </source>
+        <target state="new"> Signals ofrecen una forma declarativa de gestionar el estado y la reactividad en tu aplicación, simplificando el flujo de datos y mejorando el rendimiento. </target>
+      </trans-unit>
+      <trans-unit id="7755502772624126238" datatype="html">
+        <source>Learn more about Signals</source>
+        <target state="new">Aprende más sobre Signals</target>
+      </trans-unit>
+      <trans-unit id="5371828026227187692" datatype="html">
+        <source>Build apps for a global audience.</source>
+        <target state="new">Crea aplicaciones para una audiencia global.</target>
+      </trans-unit>
+      <trans-unit id="4667572349058874775" datatype="html">
+        <source> Angular’s internationalization tools make it seamless to localize your app, handle translations, and format dates, numbers, and currencies for any locale. </source>
+        <target state="new"> Las herramientas de internacionalización de Angular facilitan la localización de tu aplicación, el manejo de traducciones y el formato de fechas, números y monedas para cualquier ubicación. </target>
+      </trans-unit>
+      <trans-unit id="19928707238720227" datatype="html">
+        <source>Explore Internationalization</source>
+        <target state="new">Explora la Internacionalización</target>
+      </trans-unit>
+      <trans-unit id="1621780816147444852" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="5028423997546001256" datatype="html">
+        <source>Effortless form handling and validation.</source>
+        <target state="new">Gestión y validación de formularios sin esfuerzo.</target>
+      </trans-unit>
+      <trans-unit id="8266707669188290771" datatype="html">
+        <source> Reactive Forms empower you to create robust, dynamic forms with a model-driven approach, making validation, dynamic updates, and testing a breeze. </source>
+        <target state="new"> Reactive Forms te permiten crear formularios robustos y dinámicos con un enfoque basado en modelos, facilitando la validación, las actualizaciones dinámicas y las pruebas. </target>
+      </trans-unit>
+      <trans-unit id="4869980192320162230" datatype="html">
+        <source>Start with Reactive Forms</source>
+        <target state="new">Comienza con Reactive Forms</target>
+      </trans-unit>
+      <trans-unit id="998113163585598828" datatype="html">
+        <source>Bring your UI to life with Angular Animations.</source>
+        <target state="new">Da vida a tu interfaz de usuario con Angular Animations.</target>
+      </trans-unit>
+      <trans-unit id="2976285442101094791" datatype="html">
+        <source> Create smooth transitions and engaging effects with Angular’s powerful animation API, making your application visually appealing and interactive. </source>
+        <target state="new"> Crea transiciones suaves y efectos atractivos con la potente API de animación de Angular, haciendo que tu aplicación sea visualmente atractiva e interactiva. </target>
+      </trans-unit>
+      <trans-unit id="4932058897590347667" datatype="html">
+        <source>Discover Angular Animations</source>
+        <target state="new">Descubre Angular Animations</target>
+      </trans-unit>
+      <trans-unit id="6658258424216666202" datatype="html">
+        <source>Field required. No real email validation. Format: example@domain.com</source>
+        <target state="new">Campo requerido. No hay validación real del correo. Formato: ejemplo@dominio.com</target>
+      </trans-unit>
+      <trans-unit id="2132215170094453288" datatype="html">
+        <source>avatar image</source>
+        <target state="new">avatar image</target>
+      </trans-unit>
+      <trans-unit id="7895937526865210291" datatype="html">
+        <source>pokemon pikachu</source>
+        <target state="new">pokemon pikachu</target>
+      </trans-unit>
+      <trans-unit id="6126453628105043246" datatype="html">
+        <source>pokemon haunter</source>
+        <target state="new">pokemon haunter</target>
+      </trans-unit>
+      <trans-unit id="1879618927361287924" datatype="html">
+        <source>pokeball</source>
+        <target state="new">pokeball</target>
+      </trans-unit>
+      <trans-unit id="4217645930317264796" datatype="html">
+        <source>ash and pikachu</source>
+        <target state="new">ash y pikachu</target>
+      </trans-unit>
+      <trans-unit id="832917636166100741" datatype="html">
+        <source>pokemon charizard</source>
+        <target state="new">pokemon charizard</target>
+      </trans-unit>
+      <trans-unit id="8621872426885426686" datatype="html">
+        <source>pokemon blastoise</source>
+        <target state="new">pokemon blastoise</target>
+      </trans-unit>
+      <trans-unit id="4142064481735747485" datatype="html">
+        <source>ash jumping with a pokeball</source>
+        <target state="new">ash saltando con una pokeball</target>
+      </trans-unit>
+      <trans-unit id="36896075149498959" datatype="html">
+        <source>pokemon</source>
+        <target state="new">pokemon</target>
+      </trans-unit>
+      <trans-unit id="2260117472123115270" datatype="html">
+        <source>github logo</source>
+        <target state="new">logo de github</target>
+      </trans-unit>
+      <trans-unit id="2667007583315577477" datatype="html">
+        <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></source>
+        <target state="new">Usuarios viendo esta página: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></target>
+      </trans-unit>
+      <trans-unit id="6973719636314914984" datatype="html">
+        <source>An angular example app, so you can see best practices in action.</source>
+        <target state="new">Una aplicación de ejemplo de Angular, para que puedas ver las mejores prácticas en acción.</target>
+      </trans-unit>
+      <trans-unit id="4584809804925421348" datatype="html">
+        <source>No session. Please log in.</source>
+        <target state="new">No tienes sesion. Por favor, haz login.</target>
+      </trans-unit>
+      <trans-unit id="3894950702316166331" datatype="html">
+        <source>Loading...</source>
+        <target state="new">Cargando...</target>
+      </trans-unit>
+      <trans-unit id="8469070228767591171" datatype="html">
+        <source>Open navigation menu</source>
+        <target state="new">Abrir el menú de navegación</target>
+      </trans-unit>
+      <trans-unit id="2707140231864019490" datatype="html">
+        <source>Angular Signals</source>
+        <target state="new">Angular Signals</target>
+      </trans-unit>
+      <trans-unit id="7373613501758200135" datatype="html">
+        <source>Internationalization</source>
+        <target state="new">Internacionalización</target>
+      </trans-unit>
+      <trans-unit id="2709889076680757048" datatype="html">
+        <source>Animations</source>
+        <target state="new">Animaciones</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

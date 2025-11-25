@@ -1,0 +1,22 @@
+@use 'base/media-queries' as mq;
+
+$page-max-width: 2560px;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin-inline: auto;
+
+  .app__main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+
+    .app__page-container {
+      display: grid;
+    }
+  }
+}
