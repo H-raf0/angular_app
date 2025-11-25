@@ -13,17 +13,13 @@ import { translations } from '~locale/translations';
 import { UserService } from '~features/authentication/services/user.service';
 import { Language } from '~core/enums/language.enum';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
-import type { User } from '~features/authentication/types/user.type';
-import { PokemonService } from '~features/pokemon/services/pokemon.service';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
-import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { AppSlSelectControlDirective } from '~shared/directives/sl-select-control.directive';
 import { ThemeButtonComponent } from '~shared/components/theme-button/theme-button.component';
-import { NgOptimizedImage } from '@angular/common';
 import { AlertService } from '~core/services/ui/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LanguageService } from '~core/services/language.service';
 import { AUTH_URLS } from '~core/constants/urls.constants';
+import type { User } from '~features/authentication/types/user.type';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -38,10 +34,8 @@ import { TrimDirective } from '~shared/directives/trim.directive';
     RouterModule,
     ReactiveFormsModule,
     SlInputIconFocusDirective,
-    PokemonImageComponent,
     AppSlSelectControlDirective,
     ThemeButtonComponent,
-    NgOptimizedImage,
     TrimDirective,
   ],
   templateUrl: './my-account.component.html',
@@ -52,17 +46,14 @@ import { TrimDirective } from '~shared/directives/trim.directive';
 export class MyAccountComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly userService = inject(UserService);
-  private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly languageService = inject(LanguageService);
 
   readonly isButtonUpdateUserFormLoading = signal(false);
-  readonly pokemonImage = signal('');
 
   translations = translations;
   user: User | undefined;
-  userFavouritePokemon: Pokemon | undefined;
   name = new FormControl('', [Validators.required, Validators.minLength(2)]);
   email = new FormControl('');
   language = new FormControl<Language>(Language.EN_US, [Validators.required]);
@@ -87,22 +78,6 @@ export class MyAccountComponent implements OnInit {
           this.name.setValue(this.user.name);
           this.email.setValue(this.user.email);
           this.language.setValue(this.user.language);
-          this.loadPokemonImage();
-        },
-        error: () => {
-          this.alertService.createErrorAlert(translations.genericErrorAlert);
-        },
-      });
-  }
-
-  loadPokemonImage() {
-    this.pokemonService
-      .getPokemon(this.user!.favouritePokemonId)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (pokemon) => {
-          this.userFavouritePokemon = pokemon;
-          this.pokemonImage.set(this.userFavouritePokemon.sprites.front_default);
         },
         error: () => {
           this.alertService.createErrorAlert(translations.genericErrorAlert);

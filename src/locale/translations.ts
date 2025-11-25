@@ -5,7 +5,7 @@ export const translations = {
   logIn: $localize`Log in`,
   register: $localize`Register`,
   myAccount: $localize`My account`,
-  myPokemon: $localize`My pokemon`,
+  myTodos: $localize`My Todos`,
   logOut: $localize`Log out`,
   fieldRequired: $localize`Field required.`,
   emailHelpText: $localize`Field required. No real email validation. Format: example@domain.com`,

@@ -29,10 +29,6 @@
         <source>Angular Example App</source>
         <target state="new">Angular Example App ES</target>
       </trans-unit>
-      <trans-unit id="4763932744918921654" datatype="html">
-        <source>What&apos;s your favourite pokemon?</source>
-        <target state="new">¿Cuál es tu Pokémon favorito?</target>
-      </trans-unit>
       <trans-unit id="2821179408673282599" datatype="html">
         <source>Home</source>
         <target state="new">Inicio</target>
@@ -44,10 +40,6 @@
       <trans-unit id="7507948636555938109" datatype="html">
         <source>Log out</source>
         <target state="new">Cerrar sesión</target>
-      </trans-unit>
-      <trans-unit id="8563030151048628698" datatype="html">
-        <source>pokemon image</source>
-        <target state="new">imagen de pokemon</target>
       </trans-unit>
       <trans-unit id="3382844245855508721" datatype="html">
         <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </source>
@@ -209,21 +201,9 @@
         <source>Español (España)</source>
         <target state="new">Español (España)</target>
       </trans-unit>
-      <trans-unit id="1463997545495016475" datatype="html">
-        <source>Your favourite pokemon is:</source>
-        <target state="new">Tu Pokémon favorito es:</target>
-      </trans-unit>
       <trans-unit id="3768927257183755959" datatype="html">
         <source>Save</source>
         <target state="new">Guardar</target>
-      </trans-unit>
-      <trans-unit id="2041654170011922770" datatype="html">
-        <source>ash standing</source>
-        <target state="new">ash de pie</target>
-      </trans-unit>
-      <trans-unit id="5418525007522184600" datatype="html">
-        <source> ¡Register and complete your Pokédex! </source>
-        <target state="new"> ¡Regístrate y completa tu Pokédex! </target>
       </trans-unit>
       <trans-unit id="3129358389635860873" datatype="html">
         <source>Retype the password</source>
@@ -232,14 +212,6 @@
       <trans-unit id="3782563238994348625" datatype="html">
         <source>Confirm password</source>
         <target state="new">Confirmar contraseña</target>
-      </trans-unit>
-      <trans-unit id="7647115740628930372" datatype="html">
-        <source>Type a pokemon</source>
-        <target state="new">Escribe un Pokémon</target>
-      </trans-unit>
-      <trans-unit id="9023761150161723521" datatype="html">
-        <source> I’ve caught &apos;em all (the terms and privacy policy) and I’m cool with them! </source>
-        <target state="new"> He atrapado todos (los términos y la política de privacidad) y estoy de acuerdo con ellos! </target>
       </trans-unit>
       <trans-unit id="5907476126990913307" datatype="html">
         <source>Create account</source>
@@ -265,73 +237,9 @@
         <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
         <target state="new"> Ya sea que busques una plantilla o un proyecto base sólido, esta configuración está diseñada para ayudarte a crear código limpio y mantenible con facilidad. </target>
       </trans-unit>
-      <trans-unit id="8795992692534730306" datatype="html">
-        <source> This project leverages the <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> to provide fun and practical examples, making it easier to understand key concepts in Angular development. By using data from the Pokémon universe, it offers a familiar and engaging way to showcase features like fetching data, handling API calls, and displaying dynamic content. </source>
-        <target state="new"> Este proyecto aprovecha la <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> para proporcionar ejemplos divertidos y prácticos, facilitando la comprensión de conceptos clave en el desarrollo de Angular. Al usar datos del universo Pokémon, ofrece una forma familiar y atractiva de mostrar características como la obtención de datos, el manejo de llamadas API y la visualización de contenido dinámico. </target>
-      </trans-unit>
       <trans-unit id="5023424198144676396" datatype="html">
         <source>Key features</source>
         <target state="new">Características clave</target>
-      </trans-unit>
-      <trans-unit id="8461145943495811496" datatype="html">
-        <source>My Pokemon</source>
-        <target state="new">Mis Pokémon</target>
-      </trans-unit>
-      <trans-unit id="8314391617152635292" datatype="html">
-        <source> Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try using the search bar to track them down. Gotta catch ‘em all! </source>
-        <target state="new"> ¡Vaya, parece que no has atrapado ningún Pokémon aún! ¿Necesitas ayuda para encontrar uno? Intenta usar la barra de búsqueda para rastrearlos. ¡Hay que atraparlos a todos! </target>
-      </trans-unit>
-      <trans-unit id="5505216764235661105" datatype="html">
-        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
-        <target state="new"> 🎯 Bien atrapado, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! Estás un paso más cerca de ser un Maestro Pokémon—¡sigue así! 🌟 </target>
-      </trans-unit>
-      <trans-unit id="1335130496718084363" datatype="html">
-        <source>Already got this one, keep going!</source>
-        <target state="new">¡Este ya lo tienes, sigue adelante!</target>
-      </trans-unit>
-      <trans-unit id="1000621969408641474" datatype="html">
-        <source>Still gotta catch &apos;em all, this one&apos;s missing from your Pokédex!</source>
-        <target state="new">¡Aún te falta atraparlos todos, este falta en tu Pokédex!</target>
-      </trans-unit>
-      <trans-unit id="9030610327675553750" datatype="html">
-        <source> POKEBALL </source>
-        <target state="new"> POKÉBALL </target>
-      </trans-unit>
-      <trans-unit id="8844151061219581698" datatype="html">
-        <source>Trainer frame 1</source>
-        <target state="new">Marco del entrenador 1</target>
-      </trans-unit>
-      <trans-unit id="1944557953539728996" datatype="html">
-        <source>Trainer frame 2</source>
-        <target state="new">Marco del entrenador 2</target>
-      </trans-unit>
-      <trans-unit id="6083403403631944991" datatype="html">
-        <source>Trainer frame 3</source>
-        <target state="new">Marco del entrenador 3</target>
-      </trans-unit>
-      <trans-unit id="971297184908956530" datatype="html">
-        <source>Trainer frame 4</source>
-        <target state="new">Marco del entrenador 4</target>
-      </trans-unit>
-      <trans-unit id="3616505908279277966" datatype="html">
-        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></source>
-        <target state="new">N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></target>
-      </trans-unit>
-      <trans-unit id="5157210307460756815" datatype="html">
-        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.height }}"/> dm</source>
-        <target state="new">Altura: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</target>
-      </trans-unit>
-      <trans-unit id="1651947138133669" datatype="html">
-        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.weight }}"/> hg</source>
-        <target state="new">Peso: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</target>
-      </trans-unit>
-      <trans-unit id="4377004748613683272" datatype="html">
-        <source>Pokeball</source>
-        <target state="new">Pokeball</target>
-      </trans-unit>
-      <trans-unit id="6820690424571383768" datatype="html">
-        <source>My pokemon</source>
-        <target state="new">Mis Pokémon</target>
       </trans-unit>
       <trans-unit id="1543538730036692975" datatype="html">
         <source>Passwords do not match.</source>
@@ -425,49 +333,9 @@
         <source>Field required. No real email validation. Format: example@domain.com</source>
         <target state="new">Campo requerido. No hay validación real del correo. Formato: ejemplo@dominio.com</target>
       </trans-unit>
-      <trans-unit id="2132215170094453288" datatype="html">
-        <source>avatar image</source>
-        <target state="new">avatar image</target>
-      </trans-unit>
-      <trans-unit id="7895937526865210291" datatype="html">
-        <source>pokemon pikachu</source>
-        <target state="new">pokemon pikachu</target>
-      </trans-unit>
-      <trans-unit id="6126453628105043246" datatype="html">
-        <source>pokemon haunter</source>
-        <target state="new">pokemon haunter</target>
-      </trans-unit>
-      <trans-unit id="1879618927361287924" datatype="html">
-        <source>pokeball</source>
-        <target state="new">pokeball</target>
-      </trans-unit>
-      <trans-unit id="4217645930317264796" datatype="html">
-        <source>ash and pikachu</source>
-        <target state="new">ash y pikachu</target>
-      </trans-unit>
-      <trans-unit id="832917636166100741" datatype="html">
-        <source>pokemon charizard</source>
-        <target state="new">pokemon charizard</target>
-      </trans-unit>
-      <trans-unit id="8621872426885426686" datatype="html">
-        <source>pokemon blastoise</source>
-        <target state="new">pokemon blastoise</target>
-      </trans-unit>
-      <trans-unit id="4142064481735747485" datatype="html">
-        <source>ash jumping with a pokeball</source>
-        <target state="new">ash saltando con una pokeball</target>
-      </trans-unit>
-      <trans-unit id="36896075149498959" datatype="html">
-        <source>pokemon</source>
-        <target state="new">pokemon</target>
-      </trans-unit>
       <trans-unit id="2260117472123115270" datatype="html">
         <source>github logo</source>
         <target state="new">logo de github</target>
-      </trans-unit>
-      <trans-unit id="2667007583315577477" datatype="html">
-        <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></source>
-        <target state="new">Usuarios viendo esta página: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></target>
       </trans-unit>
       <trans-unit id="6973719636314914984" datatype="html">
         <source>An angular example app, so you can see best practices in action.</source>
@@ -496,6 +364,46 @@
       <trans-unit id="2709889076680757048" datatype="html">
         <source>Animations</source>
         <target state="new">Animaciones</target>
+      </trans-unit>
+      <trans-unit id="1302996453805682357" datatype="html">
+        <source> Create your account </source>
+        <target state="new"> Create your account </target>
+      </trans-unit>
+      <trans-unit id="7801426068249327793" datatype="html">
+        <source> I agree to the terms and privacy policy </source>
+        <target state="new"> I agree to the terms and privacy policy </target>
+      </trans-unit>
+      <trans-unit id="8038536423973970210" datatype="html">
+        <source> This project demonstrates a simple todo list application built with Angular best practices. It showcases features like authentication, routing, state management, and more. </source>
+        <target state="new"> This project demonstrates a simple todo list application built with Angular best practices. It showcases features like authentication, routing, state management, and more. </target>
+      </trans-unit>
+      <trans-unit id="5802807461804205674" datatype="html">
+        <source>My Todo List</source>
+        <target state="new">My Todo List</target>
+      </trans-unit>
+      <trans-unit id="490280214717931939" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ getCompletedCount() }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ getTotalCount() }}"/> tasks completed </source>
+        <target state="new"> <x id="INTERPOLATION" equiv-text="{{ getCompletedCount() }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ getTotalCount() }}"/> tasks completed </target>
+      </trans-unit>
+      <trans-unit id="4880812192329698220" datatype="html">
+        <source>Add a new task...</source>
+        <target state="new">Add a new task...</target>
+      </trans-unit>
+      <trans-unit id="3249513483374643425" datatype="html">
+        <source>Add</source>
+        <target state="new">Add</target>
+      </trans-unit>
+      <trans-unit id="5223269869856942684" datatype="html">
+        <source>No tasks yet. Add one above to get started!</source>
+        <target state="new">No tasks yet. Add one above to get started!</target>
+      </trans-unit>
+      <trans-unit id="4510676848705799339" datatype="html">
+        <source>Delete task</source>
+        <target state="new">Delete task</target>
+      </trans-unit>
+      <trans-unit id="1876171827239744506" datatype="html">
+        <source>My Todos</source>
+        <target state="new">My Todos</target>
       </trans-unit>
     </body>
   </file>

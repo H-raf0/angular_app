@@ -13,9 +13,8 @@ import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { LanguageSelectorComponent } from '~shared/components/language-selector/language-selector.component';
 import { ThemeButtonComponent } from '~shared/components/theme-button/theme-button.component';
-import { PokemonSearchInputComponent } from '~shared/components/pokemon-search-input/pokemon-search-input.component';
 import { translations } from '~locale/translations';
-import { AUTH_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, ROOT_URLS, TODO_URLS } from '~core/constants/urls.constants';
 import type { SlDropdown } from '@shoelace-style/shoelace';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
@@ -31,7 +30,6 @@ import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
     NgTemplateOutlet,
     LanguageSelectorComponent,
     ThemeButtonComponent,
-    PokemonSearchInputComponent,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -42,7 +40,7 @@ export class HeaderComponent {
   private readonly router = inject(Router);
   private readonly authService = inject(AuthenticationService);
 
-  readonly USER_URLS = USER_URLS;
+  readonly TODO_URLS = TODO_URLS;
   readonly ROOT_URLS = ROOT_URLS;
   readonly AUTH_URLS = AUTH_URLS;
   readonly translations = translations;

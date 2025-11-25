@@ -103,40 +103,27 @@
         <app-theme-button />
       </div>
     } @else {
-      <!-- MY POKEMON -->
+      <!-- MY TODOS -->
       <div class="nav__item">
         <a
           class="nav__link"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
           [routerLinkActiveOptions]="{ exact: true }"
-          [routerLink]="USER_URLS.myPokemon"
+          [routerLink]="TODO_URLS.list"
           (click)="closeMenu()"
         >
-          {{ translations.myPokemon }}
+          {{ translations.myTodos }}
         </a>
       </div>
 
       <ng-container [ngTemplateOutlet]="githubNavItem" />
 
-      <!-- SEARCH -->
-      <div class="nav__item">
-        <app-pokemon-search-input />
-      </div>
-
       <!-- USER MENU -->
       <div class="nav__item">
         <sl-dropdown #avatarDropdown>
           <sl-button class="dropdown-button--avatar" slot="trigger">
-            <img
-              class="avatar__image"
-              alt="avatar image"
-              i18n-alt
-              ngSrc="angularexampleapp/assets/images/gengar.png"
-              width="300"
-              height="300"
-              priority
-            />
+            <sl-icon name="person-circle" style="font-size: 2rem;" />
           </sl-button>
 
           <div class="dropdown__content-container">

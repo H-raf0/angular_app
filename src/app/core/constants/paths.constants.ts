@@ -9,13 +9,13 @@ export const AUTHENTICATION_PATHS = {
   myAccount: 'my-account',
 };
 
-export const POKEMON_PATHS = {
-  base: 'pokemon',
+export const TODO_PATHS = {
+  base: 'todo',
 };
 
 export const USER_PATHS = {
   base: 'user',
-  myPokemon: 'my-pokemon',
+  todos: 'todos',
 };
 
 export const ERROR_PATHS = {

@@ -1,8 +1,8 @@
 import {
   AUTHENTICATION_PATHS,
   ERROR_PATHS,
-  POKEMON_PATHS,
   ROOT_PATHS,
+  TODO_PATHS,
   USER_PATHS,
 } from '~core/constants/paths.constants';
 
@@ -16,12 +16,12 @@ export const AUTH_URLS = {
   myAccount: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.myAccount}`,
 };
 
-export const POKEMON_URLS = {
-  detail: (id: string) => `/${POKEMON_PATHS.base}/${id}`,
+export const TODO_URLS = {
+  list: `/${TODO_PATHS.base}`,
 };
 
 export const USER_URLS = {
-  myPokemon: `/${USER_PATHS.base}/${USER_PATHS.myPokemon}`,
+  todos: `/${USER_PATHS.base}/${USER_PATHS.todos}`,
 };
 
 export const ERROR_URLS = {

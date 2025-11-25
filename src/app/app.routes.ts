@@ -1,8 +1,8 @@
 import {
   AUTHENTICATION_PATHS,
   ERROR_PATHS,
-  POKEMON_PATHS,
   ROOT_PATHS,
+  TODO_PATHS,
   USER_PATHS,
 } from '~core/constants/paths.constants';
 import type { Route } from '@angular/router';
@@ -24,17 +24,18 @@ export const appRoutes: Route[] = [
       ),
   },
   {
-    // User: my pokemon page
+    // User: todos page
     path: USER_PATHS.base,
     loadChildren: async () =>
       import('./features/user/user.routes').then((module) => module.USER_ROUTES),
     canMatch: [authenticationGuard],
   },
   {
-    // Pokemon: detail page for pokemons
-    path: POKEMON_PATHS.base,
+    // Todo: list page
+    path: TODO_PATHS.base,
     loadChildren: async () =>
-      import('./features/pokemon/pokemon.routes').then((module) => module.POKEMON_ROUTES),
+      import('./features/todo/todo.routes').then((module) => module.TODO_ROUTES),
+    canMatch: [authenticationGuard],
   },
   {
     path: ERROR_PATHS.base,

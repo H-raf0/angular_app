@@ -1,11 +1,6 @@
 import type { Route } from '@angular/router';
-import { USER_PATHS } from '~core/constants/paths.constants';
-import { MyPokemonComponent } from '~features/user/my-pokemon/pages/my-pokemon/my-pokemon.component';
+import { TODO_URLS } from '~core/constants/urls.constants';
 
 export const USER_ROUTES: Route[] = [
-  { path: '', redirectTo: USER_PATHS.myPokemon, pathMatch: 'full' },
-  {
-    path: USER_PATHS.myPokemon,
-    component: MyPokemonComponent,
-  },
+  { path: '', redirectTo: TODO_URLS.list, pathMatch: 'full' },
 ];

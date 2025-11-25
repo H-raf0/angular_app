@@ -1,16 +1,8 @@
 <main>
   <h1 class="first-heading__title" i18n data-testid="register-title">
-    ¡Register and complete your Pokédex!
+    Create your account
   </h1>
   <form class="form__container register__form" [formGroup]="registerForm" (ngSubmit)="sendForm()">
-    <img
-      class="register-form__image"
-      alt="pokemon haunter"
-      i18n-alt
-      ngSrc="angularexampleapp/assets/images/haunter.png"
-      width="200"
-      height="200"
-    />
     <div class="form-control__container">
       <sl-input
         class="input--primary"
@@ -87,40 +79,6 @@
       </sl-input>
     </div>
     <div class="form-control__container">
-      <sl-input
-        type="text"
-        class="input--primary"
-        placeholder="Type a pokemon"
-        label="What's your favourite pokemon?"
-        size="medium"
-        i18n-label
-        i18n-placeholder
-        appSlInputIconFocus
-        appTrim
-        ngDefaultControl
-        required
-        [attr.help-text]="
-          formControls.favouritePokemonId['touched'] && !formControls.favouritePokemonId['valid']
-            ? translations.pokemonHelpText
-            : ''
-        "
-        [formControl]="formControls.favouritePokemonId"
-      >
-        <sl-icon name="star" slot="prefix" />
-        @if (formState().isPokemonValidating()) {
-          <img
-            class="loading__image"
-            alt="pokeball"
-            slot="suffix"
-            i18n-alt
-            ngSrc="angularexampleapp/assets/images/pokeball.png"
-            width="100"
-            height="100"
-          />
-        }
-      </sl-input>
-    </div>
-    <div class="form-control__container">
       <sl-checkbox
         class="checkbox--primary"
         i18n
@@ -132,7 +90,7 @@
         "
         [formControl]="formControls.terms"
       >
-        I’ve caught 'em all (the terms and privacy policy) and I’m cool with them!
+        I agree to the terms and privacy policy
       </sl-checkbox>
     </div>
     <div class="form-control__container">
@@ -142,7 +100,6 @@
         pill
         type="submit"
         [disabled]="formState().isLoading"
-        [class.pokemon-appear]="formState().isRegistrationCompleted"
         [attr.loading]="formState().isLoading || null"
       >
         <ng-container i18n>Create account</ng-container>

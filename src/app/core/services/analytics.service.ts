@@ -1,12 +1,9 @@
 import { DOCUMENT, inject, Injectable } from '@angular/core';
-import { httpResource, type HttpResourceRef } from '@angular/common/http';
-import { getEndpoints } from '~core/constants/endpoints.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnalyticsService {
-  private readonly endpoints = getEndpoints();
   private readonly document = inject(DOCUMENT);
 
   loadGA4Script() {
@@ -17,12 +14,5 @@ export class AnalyticsService {
     this.document.head.appendChild(script);
   }
 
-  getRealtimeUsersResource(): HttpResourceRef<{ activeUsers: number }> {
-    return httpResource<{ activeUsers: number }>(
-      () => ({ url: this.endpoints.analytics.v1.realtimeUsers }),
-      {
-        defaultValue: { activeUsers: 1 },
-      },
-    );
-  }
+  // Removed getRealtimeUsersResource - analytics endpoint no longer available
 }

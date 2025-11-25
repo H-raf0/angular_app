@@ -8,11 +8,10 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, EMPTY, finalize } from 'rxjs';
 import { emailValidator } from '~shared/validators/email.validator';
-import { AUTH_URLS, USER_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, TODO_URLS } from '~core/constants/urls.constants';
 import { passwordValidator } from '~shared/validators/password.validator';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
 import { LowercaseDirective } from '~shared/directives/lowercase.directive';
@@ -38,7 +37,6 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
     ReactiveFormsModule,
     RouterModule,
     SlInputIconFocusDirective,
-    NgOptimizedImage,
     LowercaseDirective,
     TrimDirective,
   ],
@@ -89,7 +87,7 @@ export class LogInComponent {
       )
       .subscribe({
         next: (user: User) => {
-          this.languageService.navigateWithUserLanguage(user.language, USER_URLS.myPokemon);
+          this.languageService.navigateWithUserLanguage(user.language, TODO_URLS.list);
         },
       });
   }
