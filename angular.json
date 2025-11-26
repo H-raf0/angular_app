@@ -28,7 +28,7 @@
             "ssr": false,
             "polyfills": ["@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
-            "localize": ["es", "en", "fr"],
+            "localize": ["en", "fr"],
             "i18nMissingTranslation": "error",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -80,13 +80,6 @@
               "localize": ["en"],
               "budgets": []
             },
-            "localhost-es": {
-              "outputHashing": "none",
-              "optimization": false,
-              "sourceMap": true,
-              "localize": ["es"],
-              "budgets": []
-            },
             "localhost-fr": {
               "outputHashing": "none",
               "optimization": false,
@@ -103,9 +96,6 @@
             "localhost-en": {
               "buildTarget": "angularexampleapp:build:localhost-en"
             },
-            "localhost-es": {
-              "buildTarget": "angularexampleapp:build:localhost-es"
-            },
             "localhost-fr": {
               "buildTarget": "angularexampleapp:build:localhost-fr"
             }
@@ -118,7 +108,7 @@
             "buildTarget": "angularexampleapp:build",
             "format": "xlf",
             "outputPath": "src/locale",
-            "targetFiles": ["messages.es.xlf"],
+            "targetFiles": ["messages.fr.xlf"],
             "prettyNestedTags": true,
             "sort": "stableAppendNew"
           }
@@ -144,10 +134,6 @@
           "subPath": ""
         },
         "locales": {
-          "es": {
-            "translation": "src/locale/messages.es.xlf",
-            "subPath": "es"
-          },
           "fr": {
             "translation": "src/locale/messages.fr.xlf",
             "subPath": "fr"

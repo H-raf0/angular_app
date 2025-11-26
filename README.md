@@ -15,3 +15,5 @@ conception -> developement -> test
 
 
 the translation is broken for know
+
+//roor page show wrong image

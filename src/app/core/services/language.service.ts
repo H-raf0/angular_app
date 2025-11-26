@@ -13,8 +13,8 @@ export class LanguageService {
   private readonly router = inject(Router);
 
   convertLocaleToAcceptLanguage(): Language {
-    if (this.localeId === (Locale.ES as string)) {
-      return Language.ES_ES;
+    if (this.localeId === (Locale.FR as string)) {
+      return Language.FR_FR;
     }
     return Language.EN_US;
   }
@@ -35,15 +35,15 @@ export class LanguageService {
   }
 
   private doesLocaleMatchLanguage(language: Language) {
-    if (this.localeId === (Locale.ES as string)) {
-      return language === Language.ES_ES;
+    if (this.localeId === (Locale.FR as string)) {
+      return language === Language.FR_FR;
     }
     return language === Language.EN_US;
   }
 
   private getLocaleFromLanguage(language: Language): Locale {
-    if (language === Language.ES_ES) {
-      return Locale.ES;
+    if (language === Language.FR_FR) {
+      return Locale.FR;
     }
     return DEFAULT_LOCALE;
   }

@@ -79,8 +79,9 @@ export class AuthenticationService {
       () => {
         return new Observable<RegisterResponseData>((subscriber) => {
           try {
-            const language = this.languageService.convertLocaleToAcceptLanguage() === 'es-ES' 
-              ? Language.ES_ES 
+            const currentLanguage = this.languageService.convertLocaleToAcceptLanguage();
+            const language = currentLanguage === Language.FR_FR
+              ? Language.FR_FR
               : Language.EN_US;
             
             const user = this.mockAuthStorage.registerUser(
