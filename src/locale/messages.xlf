@@ -35,9 +35,6 @@
       <trans-unit id="1206520795340730278" datatype="html">
         <source>English (US)</source>
       </trans-unit>
-      <trans-unit id="1448946353661594760" datatype="html">
-        <source>Español (España)</source>
-      </trans-unit>
       <trans-unit id="1534029177398918729" datatype="html">
         <source>GitHub</source>
       </trans-unit>
@@ -98,9 +95,6 @@
       <trans-unit id="4022823352084662376" datatype="html">
         <source>Register failed. This attempt wasn’t very effective, try again!</source>
       </trans-unit>
-      <trans-unit id="4176833090298296042" datatype="html">
-        <source> Español (España)</source>
-      </trans-unit>
       <trans-unit id="4182095487772075673" datatype="html">
         <source> Discord </source>
       </trans-unit>
@@ -146,9 +140,6 @@
       <trans-unit id="5907476126990913307" datatype="html">
         <source>Create account</source>
       </trans-unit>
-      <trans-unit id="6066456905066879060" datatype="html">
-        <source>ES-ES</source>
-      </trans-unit>
       <trans-unit id="6448505059864540544" datatype="html">
         <source>ash and pikachu sad</source>
       </trans-unit>
@@ -169,9 +160,6 @@
       </trans-unit>
       <trans-unit id="7358438134446811618" datatype="html">
         <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
-      </trans-unit>
-      <trans-unit id="7535527225967694107" datatype="html">
-        <source>Español</source>
       </trans-unit>
       <trans-unit id="7751010942038334793" datatype="html">
         <source>Blog</source>
@@ -391,6 +379,18 @@
       </trans-unit>
       <trans-unit id="9081463435738465430" datatype="html">
         <source>Blocked</source>
+      </trans-unit>
+      <trans-unit id="1725022444226838622" datatype="html">
+        <source> Français (France)</source>
+      </trans-unit>
+      <trans-unit id="270017530991604165" datatype="html">
+        <source>FR-FR</source>
+      </trans-unit>
+      <trans-unit id="4134147244760971282" datatype="html">
+        <source>Français</source>
+      </trans-unit>
+      <trans-unit id="5568963840075243182" datatype="html">
+        <source>Français (France)</source>
       </trans-unit>
     </body>
   </file>

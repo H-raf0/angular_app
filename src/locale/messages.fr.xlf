@@ -2,8 +2,7 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="fr" datatype="plaintext" original="ng2.template">
     <body>
-      <!-- Task Tracker New Translations -->
-      <trans-unit id="5802807461804205674" datatype="html">
+      <trans-unit id="4758864477410664186" datatype="html">
         <source>My Task List</source>
         <target state="new">Ma Liste de Tâches</target>
       </trans-unit>
@@ -27,142 +26,501 @@
         <source>No tasks yet. Add one above to get started!</source>
         <target state="new">Aucune tâche pour le moment. Ajoutez-en une ci-dessus pour commencer !</target>
       </trans-unit>
-      <!-- Priority Labels -->
-      <trans-unit id="task-priority-low" datatype="html">
+      <trans-unit id="4071362499864583859" datatype="html">
         <source>Low Priority</source>
         <target state="new">Priorité Basse</target>
       </trans-unit>
-      <trans-unit id="task-priority-medium" datatype="html">
+      <trans-unit id="5861843152219434948" datatype="html">
         <source>Medium Priority</source>
         <target state="new">Priorité Moyenne</target>
       </trans-unit>
-      <trans-unit id="task-priority-high" datatype="html">
+      <trans-unit id="2574688541305190509" datatype="html">
         <source>High Priority</source>
         <target state="new">Priorité Haute</target>
       </trans-unit>
-      <!-- Status Labels -->
-      <trans-unit id="task-status-not-started" datatype="html">
+      <trans-unit id="7956057693469748121" datatype="html">
         <source>Not Started</source>
         <target state="new">Non Commencé</target>
       </trans-unit>
-      <trans-unit id="task-status-in-progress" datatype="html">
+      <trans-unit id="1780950485960518731" datatype="html">
         <source>In Progress</source>
         <target state="new">En Cours</target>
       </trans-unit>
-      <trans-unit id="task-status-completed" datatype="html">
+      <trans-unit id="1161299114153631702" datatype="html">
         <source>Completed</source>
         <target state="new">Terminé</target>
       </trans-unit>
-      <trans-unit id="task-status-blocked" datatype="html">
+      <trans-unit id="9081463435738465430" datatype="html">
         <source>Blocked</source>
         <target state="new">Bloqué</target>
       </trans-unit>
-      <!-- Filter and Sort -->
-      <trans-unit id="filter-by-priority" datatype="html">
+      <trans-unit id="6844530879637820482" datatype="html">
         <source>Filter by Priority</source>
         <target state="new">Filtrer par Priorité</target>
       </trans-unit>
-      <trans-unit id="filter-by-status" datatype="html">
+      <trans-unit id="1341636531721064512" datatype="html">
         <source>Filter by Status</source>
         <target state="new">Filtrer par Statut</target>
       </trans-unit>
-      <trans-unit id="filter-by-tag" datatype="html">
+      <trans-unit id="3980757604750257396" datatype="html">
         <source>Filter by Tag</source>
         <target state="new">Filtrer par Étiquette</target>
       </trans-unit>
-      <trans-unit id="search-tasks" datatype="html">
+      <trans-unit id="8513251607175535191" datatype="html">
         <source>Search tasks...</source>
         <target state="new">Rechercher des tâches...</target>
       </trans-unit>
-      <trans-unit id="all-priorities" datatype="html">
+      <trans-unit id="7934385702624981244" datatype="html">
         <source>All Priorities</source>
         <target state="new">Toutes les Priorités</target>
       </trans-unit>
-      <trans-unit id="all-statuses" datatype="html">
+      <trans-unit id="2506799423809651300" datatype="html">
         <source>All Statuses</source>
         <target state="new">Tous les Statuts</target>
       </trans-unit>
-      <trans-unit id="all-tags" datatype="html">
+      <trans-unit id="5417294544487128504" datatype="html">
         <source>All Tags</source>
         <target state="new">Toutes les Étiquettes</target>
       </trans-unit>
-      <trans-unit id="clear-filters" datatype="html">
-        <source>Clear Filters</source>
-        <target state="new">Effacer les Filtres</target>
+      <trans-unit id="1953429831171058348" datatype="html">
+        <source> Clear Filters </source>
+        <target state="new"> Effacer les Filtres </target>
       </trans-unit>
-      <trans-unit id="sort-by" datatype="html">
+      <trans-unit id="7699622144571229146" datatype="html">
         <source>Sort by</source>
         <target state="new">Trier par</target>
       </trans-unit>
-      <trans-unit id="created-date" datatype="html">
+      <trans-unit id="4419255670681936886" datatype="html">
         <source>Created Date</source>
         <target state="new">Date de Création</target>
       </trans-unit>
-      <trans-unit id="due-date" datatype="html">
+      <trans-unit id="1917979079769004212" datatype="html">
         <source>Due Date</source>
-        <target state="new">Date d'Échéance</target>
+        <target state="new">Date d&apos;Échéance</target>
       </trans-unit>
-      <trans-unit id="priority" datatype="html">
+      <trans-unit id="2734022681675842051" datatype="html">
         <source>Priority</source>
         <target state="new">Priorité</target>
       </trans-unit>
-      <trans-unit id="status" datatype="html">
+      <trans-unit id="5611592591303869712" datatype="html">
         <source>Status</source>
         <target state="new">Statut</target>
       </trans-unit>
-      <trans-unit id="title" datatype="html">
+      <trans-unit id="5701618810648052610" datatype="html">
         <source>Title</source>
         <target state="new">Titre</target>
       </trans-unit>
-      <trans-unit id="ascending" datatype="html">
-        <source>Ascending</source>
-        <target state="new">Croissant</target>
+      <trans-unit id="325760272024181061" datatype="html">
+        <source> Advanced Options </source>
+        <target state="new"> Options Avancées </target>
       </trans-unit>
-      <trans-unit id="descending" datatype="html">
-        <source>Descending</source>
-        <target state="new">Décroissant</target>
-      </trans-unit>
-      <!-- Form Fields -->
-      <trans-unit id="advanced-options" datatype="html">
-        <source>Advanced Options</source>
-        <target state="new">Options Avancées</target>
-      </trans-unit>
-      <trans-unit id="enter-description" datatype="html">
+      <trans-unit id="2425879611133856579" datatype="html">
         <source>Enter description...</source>
         <target state="new">Entrer la description...</target>
       </trans-unit>
-      <trans-unit id="description" datatype="html">
-        <source>Description</source>
-        <target state="new">Description</target>
-      </trans-unit>
-      <trans-unit id="tags" datatype="html">
+      <trans-unit id="7886570921510760899" datatype="html">
         <source>Tags</source>
         <target state="new">Étiquettes</target>
       </trans-unit>
-      <trans-unit id="add-tag-enter" datatype="html">
+      <trans-unit id="4447634166463841851" datatype="html">
         <source>Add a tag and press Enter...</source>
         <target state="new">Ajouter une étiquette et appuyer sur Entrée...</target>
       </trans-unit>
-      <trans-unit id="add-tag" datatype="html">
-        <source>Add Tag</source>
-        <target state="new">Ajouter une Étiquette</target>
+      <trans-unit id="7653026366651426469" datatype="html">
+        <source> Add Tag </source>
+        <target state="new"> Ajouter une Étiquette </target>
       </trans-unit>
-      <trans-unit id="details" datatype="html">
+      <trans-unit id="5028777105388019087" datatype="html">
         <source>Details</source>
         <target state="new">Détails</target>
       </trans-unit>
-      <trans-unit id="overdue" datatype="html">
+      <trans-unit id="8547153724791757236" datatype="html">
         <source>Overdue</source>
         <target state="new">En Retard</target>
       </trans-unit>
-      <trans-unit id="no-tasks-match" datatype="html">
+      <trans-unit id="6708150244620879386" datatype="html">
         <source>No tasks match your filters. Try adjusting your search criteria.</source>
-        <target state="new">Aucune tâche ne correspond à vos filtres. Essayez d'ajuster vos critères de recherche.</target>
+        <target state="new">Aucune tâche ne correspond à vos filtres. Essayez d&apos;ajuster vos critères de recherche.</target>
       </trans-unit>
-      <!-- Common translations (keeping same as source for now, can be translated later) -->
       <trans-unit id="1876171827239744506" datatype="html">
         <source>My Todos</source>
         <target state="new">Mes Tâches</target>
+      </trans-unit>
+      <trans-unit id="8083833302822858845" datatype="html">
+        <source>¡Welcome back!</source>
+        <target state="new">¡Welcome back!</target>
+      </trans-unit>
+      <trans-unit id="203827529942340818" datatype="html">
+        <source>Enter your email</source>
+        <target state="new">Enter your email</target>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <target state="new">Email</target>
+      </trans-unit>
+      <trans-unit id="2772023564304193657" datatype="html">
+        <source>Enter your password</source>
+        <target state="new">Enter your password</target>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target state="new">Password</target>
+      </trans-unit>
+      <trans-unit id="7016790272435410171" datatype="html">
+        <source>Enter</source>
+        <target state="new">Enter</target>
+      </trans-unit>
+      <trans-unit id="8183540845277493557" datatype="html">
+        <source>Don&apos;t have an account yet? Register</source>
+        <target state="new">Don&apos;t have an account yet? Register</target>
+      </trans-unit>
+      <trans-unit id="8893390761160292681" datatype="html">
+        <source>My account</source>
+        <target state="new">My account</target>
+      </trans-unit>
+      <trans-unit id="3264452655068017433" datatype="html">
+        <source>Enter your name</source>
+        <target state="new">Enter your name</target>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target state="new">Name</target>
+      </trans-unit>
+      <trans-unit id="2826581353496868063" datatype="html">
+        <source>Language</source>
+        <target state="new">Language</target>
+      </trans-unit>
+      <trans-unit id="1206520795340730278" datatype="html">
+        <source>English (US)</source>
+        <target state="new">English (US)</target>
+      </trans-unit>
+      <trans-unit id="5568963840075243182" datatype="html">
+        <source>Français (France)</source>
+        <target state="new">Français (France)</target>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target state="new">Save</target>
+      </trans-unit>
+      <trans-unit id="1302996453805682357" datatype="html">
+        <source> Create your account </source>
+        <target state="new"> Create your account </target>
+      </trans-unit>
+      <trans-unit id="3129358389635860873" datatype="html">
+        <source>Retype the password</source>
+        <target state="new">Retype the password</target>
+      </trans-unit>
+      <trans-unit id="3782563238994348625" datatype="html">
+        <source>Confirm password</source>
+        <target state="new">Confirm password</target>
+      </trans-unit>
+      <trans-unit id="7801426068249327793" datatype="html">
+        <source> I agree to the terms and privacy policy </source>
+        <target state="new"> I agree to the terms and privacy policy </target>
+      </trans-unit>
+      <trans-unit id="5907476126990913307" datatype="html">
+        <source>Create account</source>
+        <target state="new">Create account</target>
+      </trans-unit>
+      <trans-unit id="6470465744110022708" datatype="html">
+        <source>Do you have an account? Log in</source>
+        <target state="new">Do you have an account? Log in</target>
+      </trans-unit>
+      <trans-unit id="4480466648551521017" datatype="html">
+        <source>Error 404: A Wild Error Appeared</source>
+        <target state="new">Error 404: A Wild Error Appeared</target>
+      </trans-unit>
+      <trans-unit id="6448505059864540544" datatype="html">
+        <source>ash and pikachu sad</source>
+        <target state="new">ash and pikachu sad</target>
+      </trans-unit>
+      <trans-unit id="8515623719828483173" datatype="html">
+        <source> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </source>
+        <target state="new"> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </target>
+      </trans-unit>
+      <trans-unit id="5831080362044041624" datatype="html">
+        <source> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </source>
+        <target state="new"> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </target>
+      </trans-unit>
+      <trans-unit id="7358438134446811618" datatype="html">
+        <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
+        <target state="new"> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </target>
+      </trans-unit>
+      <trans-unit id="8976378127227472342" datatype="html">
+        <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
+        <target state="new"> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </target>
+      </trans-unit>
+      <trans-unit id="8038536423973970210" datatype="html">
+        <source> This project demonstrates a simple todo list application built with Angular best practices. It showcases features like authentication, routing, state management, and more. </source>
+        <target state="new"> This project demonstrates a simple todo list application built with Angular best practices. It showcases features like authentication, routing, state management, and more. </target>
+      </trans-unit>
+      <trans-unit id="5023424198144676396" datatype="html">
+        <source>Key features</source>
+        <target state="new">Key features</target>
+      </trans-unit>
+      <trans-unit id="2707140231864019490" datatype="html">
+        <source>Angular Signals</source>
+        <target state="new">Angular Signals</target>
+      </trans-unit>
+      <trans-unit id="7680046165638889668" datatype="html">
+        <source>Unlock reactivity with Angular Signals.</source>
+        <target state="new">Unlock reactivity with Angular Signals.</target>
+      </trans-unit>
+      <trans-unit id="7623666311824205556" datatype="html">
+        <source> Signals provide a declarative way to manage state and reactivity in your application, simplifying data flow and improving performance. </source>
+        <target state="new"> Signals provide a declarative way to manage state and reactivity in your application, simplifying data flow and improving performance. </target>
+      </trans-unit>
+      <trans-unit id="7755502772624126238" datatype="html">
+        <source>Learn more about Signals</source>
+        <target state="new">Learn more about Signals</target>
+      </trans-unit>
+      <trans-unit id="7373613501758200135" datatype="html">
+        <source>Internationalization</source>
+        <target state="new">Internationalization</target>
+      </trans-unit>
+      <trans-unit id="5371828026227187692" datatype="html">
+        <source>Build apps for a global audience.</source>
+        <target state="new">Build apps for a global audience.</target>
+      </trans-unit>
+      <trans-unit id="4667572349058874775" datatype="html">
+        <source> Angular’s internationalization tools make it seamless to localize your app, handle translations, and format dates, numbers, and currencies for any locale. </source>
+        <target state="new"> Angular’s internationalization tools make it seamless to localize your app, handle translations, and format dates, numbers, and currencies for any locale. </target>
+      </trans-unit>
+      <trans-unit id="19928707238720227" datatype="html">
+        <source>Explore Internationalization</source>
+        <target state="new">Explore Internationalization</target>
+      </trans-unit>
+      <trans-unit id="1621780816147444852" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="5028423997546001256" datatype="html">
+        <source>Effortless form handling and validation.</source>
+        <target state="new">Effortless form handling and validation.</target>
+      </trans-unit>
+      <trans-unit id="8266707669188290771" datatype="html">
+        <source> Reactive Forms empower you to create robust, dynamic forms with a model-driven approach, making validation, dynamic updates, and testing a breeze. </source>
+        <target state="new"> Reactive Forms empower you to create robust, dynamic forms with a model-driven approach, making validation, dynamic updates, and testing a breeze. </target>
+      </trans-unit>
+      <trans-unit id="4869980192320162230" datatype="html">
+        <source>Start with Reactive Forms</source>
+        <target state="new">Start with Reactive Forms</target>
+      </trans-unit>
+      <trans-unit id="2709889076680757048" datatype="html">
+        <source>Animations</source>
+        <target state="new">Animations</target>
+      </trans-unit>
+      <trans-unit id="998113163585598828" datatype="html">
+        <source>Bring your UI to life with Angular Animations.</source>
+        <target state="new">Bring your UI to life with Angular Animations.</target>
+      </trans-unit>
+      <trans-unit id="2976285442101094791" datatype="html">
+        <source> Create smooth transitions and engaging effects with Angular’s powerful animation API, making your application visually appealing and interactive. </source>
+        <target state="new"> Create smooth transitions and engaging effects with Angular’s powerful animation API, making your application visually appealing and interactive. </target>
+      </trans-unit>
+      <trans-unit id="4932058897590347667" datatype="html">
+        <source>Discover Angular Animations</source>
+        <target state="new">Discover Angular Animations</target>
+      </trans-unit>
+      <trans-unit id="3894950702316166331" datatype="html">
+        <source>Loading...</source>
+        <target state="new">Loading...</target>
+      </trans-unit>
+      <trans-unit id="3382844245855508721" datatype="html">
+        <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </source>
+        <target state="new"> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </target>
+      </trans-unit>
+      <trans-unit id="5553776930806289663" datatype="html">
+        <source>Ok, got it!</source>
+        <target state="new">Ok, got it!</target>
+      </trans-unit>
+      <trans-unit id="8413653130434546022" datatype="html">
+        <source>Angular</source>
+        <target state="new">Angular</target>
+      </trans-unit>
+      <trans-unit id="7023829683035637619" datatype="html">
+        <source>Angular blog</source>
+        <target state="new">Angular blog</target>
+      </trans-unit>
+      <trans-unit id="7751010942038334793" datatype="html">
+        <source>Blog</source>
+        <target state="new">Blog</target>
+      </trans-unit>
+      <trans-unit id="2995774437111770399" datatype="html">
+        <source>X</source>
+        <target state="new">X</target>
+      </trans-unit>
+      <trans-unit id="8401085193044135025" datatype="html">
+        <source>YouTube</source>
+        <target state="new">YouTube</target>
+      </trans-unit>
+      <trans-unit id="3385320857836800705" datatype="html">
+        <source>Join the discussions at Angular Community Discord server.</source>
+        <target state="new">Join the discussions at Angular Community Discord server.</target>
+      </trans-unit>
+      <trans-unit id="4182095487772075673" datatype="html">
+        <source> Discord </source>
+        <target state="new"> Discord </target>
+      </trans-unit>
+      <trans-unit id="1534029177398918729" datatype="html">
+        <source>GitHub</source>
+        <target state="new">GitHub</target>
+      </trans-unit>
+      <trans-unit id="771984667796132675" datatype="html">
+        <source>Angular Example App</source>
+        <target state="new">Angular Example App</target>
+      </trans-unit>
+      <trans-unit id="2999632421041217652" datatype="html">
+        <source>Contribute to Angular Example App</source>
+        <target state="new">Contribute to Angular Example App</target>
+      </trans-unit>
+      <trans-unit id="2156635906230663334" datatype="html">
+        <source> Contribute </source>
+        <target state="new"> Contribute </target>
+      </trans-unit>
+      <trans-unit id="3570800946906329961" datatype="html">
+        <source>Post issues and suggestions on github.</source>
+        <target state="new">Post issues and suggestions on github.</target>
+      </trans-unit>
+      <trans-unit id="4583602242273481020" datatype="html">
+        <source> Report Issues </source>
+        <target state="new"> Report Issues </target>
+      </trans-unit>
+      <trans-unit id="2446117790692479672" datatype="html">
+        <source>Resources</source>
+        <target state="new">Resources</target>
+      </trans-unit>
+      <trans-unit id="4982761710982945838" datatype="html">
+        <source>Stack Overflow: where the community answers your technical Angular questions.</source>
+        <target state="new">Stack Overflow: where the community answers your technical Angular questions.</target>
+      </trans-unit>
+      <trans-unit id="6561048040308058569" datatype="html">
+        <source> Stack Overflow </source>
+        <target state="new"> Stack Overflow </target>
+      </trans-unit>
+      <trans-unit id="8520351263082417377" datatype="html">
+        <source>Angular Google Developer Experts</source>
+        <target state="new">Angular Google Developer Experts</target>
+      </trans-unit>
+      <trans-unit id="4346349683507785886" datatype="html">
+        <source> Angular Google Developer Experts </source>
+        <target state="new"> Angular Google Developer Experts </target>
+      </trans-unit>
+      <trans-unit id="1949800099101277248" datatype="html">
+        <source>Languages</source>
+        <target state="new">Languages</target>
+      </trans-unit>
+      <trans-unit id="5866254605255506989" datatype="html">
+        <source>English</source>
+        <target state="new">English</target>
+      </trans-unit>
+      <trans-unit id="4134147244760971282" datatype="html">
+        <source>Français</source>
+        <target state="new">Français</target>
+      </trans-unit>
+      <trans-unit id="1725022444226838622" datatype="html">
+        <source> Français (France)</source>
+        <target state="new"> Français (France)</target>
+      </trans-unit>
+      <trans-unit id="6692431734660320901" datatype="html">
+        <source> ©2016-2025. Code licensed under a <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>MIT License<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/></source>
+        <target state="new"> ©2016-2025. Code licensed under a <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>MIT License<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/></target>
+      </trans-unit>
+      <trans-unit id="8146468428782651144" datatype="html">
+        <source>License text</source>
+        <target state="new">License text</target>
+      </trans-unit>
+      <trans-unit id="8469070228767591171" datatype="html">
+        <source>Open navigation menu</source>
+        <target state="new">Open navigation menu</target>
+      </trans-unit>
+      <trans-unit id="5575467067123609782" datatype="html">
+        <source>angular logo</source>
+        <target state="new">angular logo</target>
+      </trans-unit>
+      <trans-unit id="2260117472123115270" datatype="html">
+        <source>github logo</source>
+        <target state="new">github logo</target>
+      </trans-unit>
+      <trans-unit id="7507948636555938109" datatype="html">
+        <source>Log out</source>
+        <target state="new">Log out</target>
+      </trans-unit>
+      <trans-unit id="2820549809276148270" datatype="html">
+        <source>EN-US</source>
+        <target state="new">EN-US</target>
+      </trans-unit>
+      <trans-unit id="270017530991604165" datatype="html">
+        <source>FR-FR</source>
+        <target state="new">FR-FR</target>
+      </trans-unit>
+      <trans-unit id="6973719636314914984" datatype="html">
+        <source>An angular example app, so you can see best practices in action.</source>
+        <target state="new">An angular example app, so you can see best practices in action.</target>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <target state="new">Home</target>
+      </trans-unit>
+      <trans-unit id="2336550011721758066" datatype="html">
+        <source>Log in</source>
+        <target state="new">Log in</target>
+      </trans-unit>
+      <trans-unit id="3301086086650990787" datatype="html">
+        <source>Register</source>
+        <target state="new">Register</target>
+      </trans-unit>
+      <trans-unit id="3706454661895788858" datatype="html">
+        <source>Field required.</source>
+        <target state="new">Field required.</target>
+      </trans-unit>
+      <trans-unit id="6658258424216666202" datatype="html">
+        <source>Field required. No real email validation. Format: example@domain.com</source>
+        <target state="new">Field required. No real email validation. Format: example@domain.com</target>
+      </trans-unit>
+      <trans-unit id="9015979275910770507" datatype="html">
+        <source>Must contain at least one lowercase letter, one uppercase letter and one number. No special characters.</source>
+        <target state="new">Must contain at least one lowercase letter, one uppercase letter and one number. No special characters.</target>
+      </trans-unit>
+      <trans-unit id="1543538730036692975" datatype="html">
+        <source>Passwords do not match.</source>
+        <target state="new">Passwords do not match.</target>
+      </trans-unit>
+      <trans-unit id="8192371491020855861" datatype="html">
+        <source>Field required. PokeAPI does not found that pokemon name.</source>
+        <target state="new">Field required. PokeAPI does not found that pokemon name.</target>
+      </trans-unit>
+      <trans-unit id="4201846903475880496" datatype="html">
+        <source>Find more!</source>
+        <target state="new">Find more!</target>
+      </trans-unit>
+      <trans-unit id="7321419453389412321" datatype="html">
+        <source>Find a pokemon</source>
+        <target state="new">Find a pokemon</target>
+      </trans-unit>
+      <trans-unit id="4310922273540502870" datatype="html">
+        <source>Account settings saved. You&apos;re all set!</source>
+        <target state="new">Account settings saved. You&apos;re all set!</target>
+      </trans-unit>
+      <trans-unit id="8355236492226718944" datatype="html">
+        <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
+        <target state="new">Oops! Something went wrong. Please try again later or leave an issue if it persists.</target>
+      </trans-unit>
+      <trans-unit id="3792117578788899429" datatype="html">
+        <source>Invalid credentials. Not very effective, try again!</source>
+        <target state="new">Invalid credentials. Not very effective, try again!</target>
+      </trans-unit>
+      <trans-unit id="4022823352084662376" datatype="html">
+        <source>Register failed. This attempt wasn’t very effective, try again!</source>
+        <target state="new">Register failed. This attempt wasn’t very effective, try again!</target>
+      </trans-unit>
+      <trans-unit id="1711725680914111687" datatype="html">
+        <source>Pokémon not found. Double-check the name and try again!</source>
+        <target state="new">Pokémon not found. Double-check the name and try again!</target>
+      </trans-unit>
+      <trans-unit id="4584809804925421348" datatype="html">
+        <source>No session. Please log in.</source>
+        <target state="new">No session. Please log in.</target>
       </trans-unit>
     </body>
   </file>
