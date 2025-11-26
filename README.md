@@ -17,3 +17,27 @@ conception -> developement -> test
 the translation is broken for know
 
 //roor page show wrong image
+
+
+
+
+
+
+
+
+
+
+
+old limit
+"budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kB",
+                "maximumError": "600kB"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "4kB",
+                "maximumError": "8kB"
+              }
+            ]
