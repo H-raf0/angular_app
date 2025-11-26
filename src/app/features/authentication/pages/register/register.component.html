@@ -5,6 +5,7 @@
   <form class="form__container register__form" [formGroup]="registerForm" (ngSubmit)="sendForm()">
     <div class="form-control__container">
       <sl-input
+        id="register-name-input"
         class="input--primary"
         placeholder="Enter your name"
         label="Name"
@@ -23,6 +24,7 @@
     </div>
     <div class="form-control__container">
       <sl-input
+        id="register-email-input"
         class="input--primary"
         placeholder="Enter your email"
         label="Email"
@@ -42,6 +44,7 @@
     </div>
     <div class="form-control__container">
       <sl-input
+        id="register-password-input"
         type="password"
         class="input--primary"
         placeholder="Enter your password"
@@ -61,6 +64,7 @@
     </div>
     <div class="form-control__container">
       <sl-input
+        id="register-confirm-password-input"
         type="password"
         class="input--primary"
         placeholder="Retype the password"

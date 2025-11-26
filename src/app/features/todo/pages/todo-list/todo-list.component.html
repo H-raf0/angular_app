@@ -9,6 +9,7 @@
 
   <form class="todo-form__container" [formGroup]="newTodoForm" (ngSubmit)="addTodo()">
     <sl-input
+      id="todo-input"
       class="input--primary"
       placeholder="Add a new task..."
       i18n-placeholder

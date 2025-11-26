@@ -3,6 +3,7 @@
   <form class="form__container login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
     <div class="form-control__container">
       <sl-input
+        id="login-email-input"
         class="input--primary"
         placeholder="Enter your email"
         label="Email"
@@ -24,6 +25,7 @@
     </div>
     <div class="form-control__container">
       <sl-input
+        id="login-password-input"
         type="password"
         class="input--primary"
         placeholder="Enter your password"
