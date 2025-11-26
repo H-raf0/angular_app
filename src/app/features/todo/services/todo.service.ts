@@ -1,6 +1,13 @@
 import { effect, inject, Injectable, signal } from '@angular/core';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
-import type { Todo, CreateTodoRequest, UpdateTodoRequest } from '~features/todo/types/todo.type';
+import type {
+  Todo,
+  CreateTodoRequest,
+  UpdateTodoRequest,
+  TaskPriority,
+  TaskStatus,
+} from '~features/todo/types/todo.type';
+import { TaskPriority as TaskPriorityEnum, TaskStatus as TaskStatusEnum } from '~features/todo/types/todo.type';
 
 const TODOS_STORAGE_KEY = 'todos';
 
@@ -34,6 +41,11 @@ export class TodoService {
       id: this.generateId(),
       title: request.title.trim(),
       completed: false,
+      priority: request.priority ?? TaskPriorityEnum.MEDIUM,
+      status: request.status ?? TaskStatusEnum.NOT_STARTED,
+      ...(request.description && { description: request.description.trim() }),
+      ...(request.dueDate && { dueDate: request.dueDate }),
+      tags: request.tags ?? [],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
@@ -50,8 +62,22 @@ export class TodoService {
       ...todo,
       ...(request.title !== undefined && { title: request.title.trim() }),
       ...(request.completed !== undefined && { completed: request.completed }),
+      ...(request.priority !== undefined && { priority: request.priority }),
+      ...(request.status !== undefined && { status: request.status }),
+      ...(request.description !== undefined && { description: request.description?.trim() }),
+      ...(request.dueDate !== undefined && { dueDate: request.dueDate }),
+      ...(request.tags !== undefined && { tags: request.tags }),
       updatedAt: new Date().toISOString(),
     };
+
+    // Sync completed status with TaskStatus
+    if (request.completed !== undefined) {
+      if (request.completed && updatedTodo.status !== TaskStatusEnum.COMPLETED) {
+        updatedTodo.status = TaskStatusEnum.COMPLETED;
+      } else if (!request.completed && updatedTodo.status === TaskStatusEnum.COMPLETED) {
+        updatedTodo.status = TaskStatusEnum.NOT_STARTED;
+      }
+    }
 
     this._todos.update((todos) =>
       todos.map((t) => (t.id === id ? updatedTodo : t)),
@@ -71,7 +97,35 @@ export class TodoService {
     const todo = this.getTodoById(id);
     if (!todo) return null;
 
-    return this.updateTodo(id, { completed: !todo.completed });
+    const newCompleted = !todo.completed;
+    return this.updateTodo(id, {
+      completed: newCompleted,
+      status: newCompleted ? TaskStatusEnum.COMPLETED : TaskStatusEnum.NOT_STARTED,
+    });
+  }
+
+  getTasksByPriority(priority: TaskPriority): Todo[] {
+    return this._todos().filter((todo) => todo.priority === priority);
+  }
+
+  getTasksByStatus(status: TaskStatus): Todo[] {
+    return this._todos().filter((todo) => todo.status === status);
+  }
+
+  getTasksByTag(tag: string): Todo[] {
+    return this._todos().filter((todo) => todo.tags.includes(tag));
+  }
+
+  getOverdueTasks(): Todo[] {
+    const now = new Date().toISOString();
+    return this._todos().filter(
+      (todo) => todo.dueDate && !todo.completed && todo.dueDate < now,
+    );
+  }
+
+  getAllTags(): string[] {
+    const allTags = this._todos().flatMap((todo) => todo.tags);
+    return Array.from(new Set(allTags)).sort();
   }
 
   private generateId(): string {
@@ -82,10 +136,27 @@ export class TodoService {
     try {
       const stored = this.storageService?.getItem(TODOS_STORAGE_KEY);
       if (!stored) return [];
-      return JSON.parse(stored) as Todo[];
+      const todos = JSON.parse(stored) as Todo[];
+      // Migrate old todos to new format
+      return todos.map((todo) => this.migrateTodo(todo));
     } catch {
       return [];
     }
+  }
+
+  private migrateTodo(todo: Partial<Todo> & { id: string; title: string; completed: boolean }): Todo {
+    return {
+      id: todo.id,
+      title: todo.title,
+      completed: todo.completed,
+      priority: todo.priority ?? TaskPriorityEnum.MEDIUM,
+      status: todo.status ?? (todo.completed ? TaskStatusEnum.COMPLETED : TaskStatusEnum.NOT_STARTED),
+      ...(todo.description && { description: todo.description }),
+      ...(todo.dueDate && { dueDate: todo.dueDate }),
+      tags: todo.tags ?? [],
+      createdAt: todo.createdAt ?? new Date().toISOString(),
+      updatedAt: todo.updatedAt ?? new Date().toISOString(),
+    };
   }
 
   private saveTodosToStorage(todos: Todo[]): void {

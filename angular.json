@@ -28,7 +28,7 @@
             "ssr": false,
             "polyfills": ["@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
-            "localize": ["es", "en"],
+            "localize": ["es", "en", "fr"],
             "i18nMissingTranslation": "error",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -86,6 +86,13 @@
               "sourceMap": true,
               "localize": ["es"],
               "budgets": []
+            },
+            "localhost-fr": {
+              "outputHashing": "none",
+              "optimization": false,
+              "sourceMap": true,
+              "localize": ["fr"],
+              "budgets": []
             }
           },
           "defaultConfiguration": "production"
@@ -98,6 +105,9 @@
             },
             "localhost-es": {
               "buildTarget": "angularexampleapp:build:localhost-es"
+            },
+            "localhost-fr": {
+              "buildTarget": "angularexampleapp:build:localhost-fr"
             }
           },
           "defaultConfiguration": "localhost-en"
@@ -137,6 +147,10 @@
           "es": {
             "translation": "src/locale/messages.es.xlf",
             "subPath": "es"
+          },
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf",
+            "subPath": "fr"
           }
         }
       }

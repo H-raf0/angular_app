@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="ng2.template">
+    <body>
+      <!-- Task Tracker New Translations -->
+      <trans-unit id="5802807461804205674" datatype="html">
+        <source>My Task List</source>
+        <target state="new">Ma Liste de Tâches</target>
+      </trans-unit>
+      <trans-unit id="490280214717931939" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ getCompletedCount() }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ getTotalCount() }}"/> tasks completed </source>
+        <target state="new"> <x id="INTERPOLATION" equiv-text="{{ getCompletedCount() }}"/> sur <x id="INTERPOLATION_1" equiv-text="{{ getTotalCount() }}"/> tâches terminées </target>
+      </trans-unit>
+      <trans-unit id="4880812192329698220" datatype="html">
+        <source>Add a new task...</source>
+        <target state="new">Ajouter une nouvelle tâche...</target>
+      </trans-unit>
+      <trans-unit id="3249513483374643425" datatype="html">
+        <source>Add</source>
+        <target state="new">Ajouter</target>
+      </trans-unit>
+      <trans-unit id="4510676848705799339" datatype="html">
+        <source>Delete task</source>
+        <target state="new">Supprimer la tâche</target>
+      </trans-unit>
+      <trans-unit id="5223269869856942684" datatype="html">
+        <source>No tasks yet. Add one above to get started!</source>
+        <target state="new">Aucune tâche pour le moment. Ajoutez-en une ci-dessus pour commencer !</target>
+      </trans-unit>
+      <!-- Priority Labels -->
+      <trans-unit id="task-priority-low" datatype="html">
+        <source>Low Priority</source>
+        <target state="new">Priorité Basse</target>
+      </trans-unit>
+      <trans-unit id="task-priority-medium" datatype="html">
+        <source>Medium Priority</source>
+        <target state="new">Priorité Moyenne</target>
+      </trans-unit>
+      <trans-unit id="task-priority-high" datatype="html">
+        <source>High Priority</source>
+        <target state="new">Priorité Haute</target>
+      </trans-unit>
+      <!-- Status Labels -->
+      <trans-unit id="task-status-not-started" datatype="html">
+        <source>Not Started</source>
+        <target state="new">Non Commencé</target>
+      </trans-unit>
+      <trans-unit id="task-status-in-progress" datatype="html">
+        <source>In Progress</source>
+        <target state="new">En Cours</target>
+      </trans-unit>
+      <trans-unit id="task-status-completed" datatype="html">
+        <source>Completed</source>
+        <target state="new">Terminé</target>
+      </trans-unit>
+      <trans-unit id="task-status-blocked" datatype="html">
+        <source>Blocked</source>
+        <target state="new">Bloqué</target>
+      </trans-unit>
+      <!-- Filter and Sort -->
+      <trans-unit id="filter-by-priority" datatype="html">
+        <source>Filter by Priority</source>
+        <target state="new">Filtrer par Priorité</target>
+      </trans-unit>
+      <trans-unit id="filter-by-status" datatype="html">
+        <source>Filter by Status</source>
+        <target state="new">Filtrer par Statut</target>
+      </trans-unit>
+      <trans-unit id="filter-by-tag" datatype="html">
+        <source>Filter by Tag</source>
+        <target state="new">Filtrer par Étiquette</target>
+      </trans-unit>
+      <trans-unit id="search-tasks" datatype="html">
+        <source>Search tasks...</source>
+        <target state="new">Rechercher des tâches...</target>
+      </trans-unit>
+      <trans-unit id="all-priorities" datatype="html">
+        <source>All Priorities</source>
+        <target state="new">Toutes les Priorités</target>
+      </trans-unit>
+      <trans-unit id="all-statuses" datatype="html">
+        <source>All Statuses</source>
+        <target state="new">Tous les Statuts</target>
+      </trans-unit>
+      <trans-unit id="all-tags" datatype="html">
+        <source>All Tags</source>
+        <target state="new">Toutes les Étiquettes</target>
+      </trans-unit>
+      <trans-unit id="clear-filters" datatype="html">
+        <source>Clear Filters</source>
+        <target state="new">Effacer les Filtres</target>
+      </trans-unit>
+      <trans-unit id="sort-by" datatype="html">
+        <source>Sort by</source>
+        <target state="new">Trier par</target>
+      </trans-unit>
+      <trans-unit id="created-date" datatype="html">
+        <source>Created Date</source>
+        <target state="new">Date de Création</target>
+      </trans-unit>
+      <trans-unit id="due-date" datatype="html">
+        <source>Due Date</source>
+        <target state="new">Date d'Échéance</target>
+      </trans-unit>
+      <trans-unit id="priority" datatype="html">
+        <source>Priority</source>
+        <target state="new">Priorité</target>
+      </trans-unit>
+      <trans-unit id="status" datatype="html">
+        <source>Status</source>
+        <target state="new">Statut</target>
+      </trans-unit>
+      <trans-unit id="title" datatype="html">
+        <source>Title</source>
+        <target state="new">Titre</target>
+      </trans-unit>
+      <trans-unit id="ascending" datatype="html">
+        <source>Ascending</source>
+        <target state="new">Croissant</target>
+      </trans-unit>
+      <trans-unit id="descending" datatype="html">
+        <source>Descending</source>
+        <target state="new">Décroissant</target>
+      </trans-unit>
+      <!-- Form Fields -->
+      <trans-unit id="advanced-options" datatype="html">
+        <source>Advanced Options</source>
+        <target state="new">Options Avancées</target>
+      </trans-unit>
+      <trans-unit id="enter-description" datatype="html">
+        <source>Enter description...</source>
+        <target state="new">Entrer la description...</target>
+      </trans-unit>
+      <trans-unit id="description" datatype="html">
+        <source>Description</source>
+        <target state="new">Description</target>
+      </trans-unit>
+      <trans-unit id="tags" datatype="html">
+        <source>Tags</source>
+        <target state="new">Étiquettes</target>
+      </trans-unit>
+      <trans-unit id="add-tag-enter" datatype="html">
+        <source>Add a tag and press Enter...</source>
+        <target state="new">Ajouter une étiquette et appuyer sur Entrée...</target>
+      </trans-unit>
+      <trans-unit id="add-tag" datatype="html">
+        <source>Add Tag</source>
+        <target state="new">Ajouter une Étiquette</target>
+      </trans-unit>
+      <trans-unit id="details" datatype="html">
+        <source>Details</source>
+        <target state="new">Détails</target>
+      </trans-unit>
+      <trans-unit id="overdue" datatype="html">
+        <source>Overdue</source>
+        <target state="new">En Retard</target>
+      </trans-unit>
+      <trans-unit id="no-tasks-match" datatype="html">
+        <source>No tasks match your filters. Try adjusting your search criteria.</source>
+        <target state="new">Aucune tâche ne correspond à vos filtres. Essayez d'ajuster vos critères de recherche.</target>
+      </trans-unit>
+      <!-- Common translations (keeping same as source for now, can be translated later) -->
+      <trans-unit id="1876171827239744506" datatype="html">
+        <source>My Todos</source>
+        <target state="new">Mes Tâches</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+

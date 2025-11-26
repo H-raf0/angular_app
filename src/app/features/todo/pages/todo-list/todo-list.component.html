@@ -1,63 +1,297 @@
 <main>
-  <h1 class="first-heading__title" i18n>My Todo List</h1>
+  <h1 class="first-heading__title" i18n>My Task List</h1>
 
-  <div class="todo__stats">
+  <div class="task__stats">
     <p i18n>
       {{ getCompletedCount() }} of {{ getTotalCount() }} tasks completed
     </p>
   </div>
 
-  <form class="todo-form__container" [formGroup]="newTodoForm" (ngSubmit)="addTodo()">
-    <sl-input
-      id="todo-input"
-      class="input--primary"
-      placeholder="Add a new task..."
-      i18n-placeholder
-      appTrim
-      required
-      ngDefaultControl
-      [formControl]="titleControl"
-      (keydown.enter)="addTodo()"
-    >
-      <sl-icon name="plus-circle" slot="prefix" />
-    </sl-input>
-    <sl-button type="submit" variant="primary" [disabled]="newTodoForm.invalid">
-      <sl-icon name="plus" slot="prefix" />
-      <ng-container i18n>Add</ng-container>
-    </sl-button>
+  <!-- Filter and Sort Controls -->
+  <div class="task-controls">
+    <div class="task-controls__filters">
+      <sl-select
+        placeholder="Filter by Priority"
+        i18n-placeholder
+        [value]="filterPriority()"
+        (sl-change)="filterPriority.set($any($event.target).value)"
+        size="small"
+      >
+        <sl-option value="all" i18n>All Priorities</sl-option>
+        <sl-option [value]="TaskPriorityEnum.LOW">{{ getPriorityLabel(TaskPriorityEnum.LOW) }}</sl-option>
+        <sl-option [value]="TaskPriorityEnum.MEDIUM">{{ getPriorityLabel(TaskPriorityEnum.MEDIUM) }}</sl-option>
+        <sl-option [value]="TaskPriorityEnum.HIGH">{{ getPriorityLabel(TaskPriorityEnum.HIGH) }}</sl-option>
+      </sl-select>
+
+      <sl-select
+        placeholder="Filter by Status"
+        i18n-placeholder
+        [value]="filterStatus()"
+        (sl-change)="filterStatus.set($any($event.target).value)"
+        size="small"
+      >
+        <sl-option value="all" i18n>All Statuses</sl-option>
+        <sl-option [value]="TaskStatusEnum.NOT_STARTED">{{ getStatusLabel(TaskStatusEnum.NOT_STARTED) }}</sl-option>
+        <sl-option [value]="TaskStatusEnum.IN_PROGRESS">{{ getStatusLabel(TaskStatusEnum.IN_PROGRESS) }}</sl-option>
+        <sl-option [value]="TaskStatusEnum.BLOCKED">{{ getStatusLabel(TaskStatusEnum.BLOCKED) }}</sl-option>
+        <sl-option [value]="TaskStatusEnum.COMPLETED">{{ getStatusLabel(TaskStatusEnum.COMPLETED) }}</sl-option>
+      </sl-select>
+
+      <sl-select
+        placeholder="Filter by Tag"
+        i18n-placeholder
+        [value]="filterTag()"
+        (sl-change)="filterTag.set($any($event.target).value)"
+        size="small"
+      >
+        <sl-option value="all" i18n>All Tags</sl-option>
+        @for (tag of availableTags(); track tag) {
+          <sl-option [value]="tag">{{ tag }}</sl-option>
+        }
+      </sl-select>
+
+      <sl-input
+        placeholder="Search tasks..."
+        i18n-placeholder
+        [value]="searchQuery()"
+        (sl-input)="searchQuery.set($any($event.target).value)"
+        size="small"
+        clearable
+      >
+        <sl-icon name="search" slot="prefix" />
+      </sl-input>
+
+      <sl-button
+        variant="default"
+        size="small"
+        (click)="clearFilters()"
+        i18n
+      >
+        Clear Filters
+      </sl-button>
+    </div>
+
+    <div class="task-controls__sort">
+      <sl-select
+        placeholder="Sort by"
+        i18n-placeholder
+        [value]="sortField()"
+        (sl-change)="sortField.set($any($event.target).value)"
+        size="small"
+      >
+        <sl-option value="createdAt" i18n>Created Date</sl-option>
+        <sl-option value="dueDate" i18n>Due Date</sl-option>
+        <sl-option value="priority" i18n>Priority</sl-option>
+        <sl-option value="status" i18n>Status</sl-option>
+        <sl-option value="title" i18n>Title</sl-option>
+      </sl-select>
+
+      <sl-button
+        variant="default"
+        size="small"
+        (click)="toggleSortDirection()"
+        i18n-title
+        [title]="sortDirection() === 'asc' ? 'Ascending' : 'Descending'"
+      >
+        <sl-icon [name]="sortDirection() === 'asc' ? 'arrow-up' : 'arrow-down'" />
+      </sl-button>
+    </div>
+  </div>
+
+  <!-- Task Creation Form -->
+  <form class="task-form__container" [formGroup]="newTodoForm" (ngSubmit)="addTodo()">
+    <div class="task-form__basic">
+      <sl-input
+        id="task-input"
+        class="input--primary"
+        placeholder="Add a new task..."
+        i18n-placeholder
+        appTrim
+        required
+        ngDefaultControl
+        [formControl]="titleControl"
+        (keydown.enter)="addTodo()"
+      >
+        <sl-icon name="plus-circle" slot="prefix" />
+      </sl-input>
+      <sl-button type="submit" variant="primary" [disabled]="newTodoForm.invalid">
+        <sl-icon name="plus" slot="prefix" />
+        <ng-container i18n>Add</ng-container>
+      </sl-button>
+    </div>
+
+    <sl-details [open]="showAdvancedForm()">
+      <summary
+        slot="summary"
+        (click)="toggleAdvancedForm()"
+        i18n
+      >
+        Advanced Options
+      </summary>
+
+      <div class="task-form__advanced">
+        <sl-textarea
+          placeholder="Enter description..."
+          i18n-placeholder
+          rows="3"
+          ngDefaultControl
+          [formControl]="descriptionControl"
+        ></sl-textarea>
+
+        <div class="task-form__row">
+          <sl-select
+            placeholder="Priority"
+            i18n-placeholder
+            ngDefaultControl
+            [formControl]="priorityControl"
+          >
+            <sl-option [value]="TaskPriorityEnum.LOW">{{ getPriorityLabel(TaskPriorityEnum.LOW) }}</sl-option>
+            <sl-option [value]="TaskPriorityEnum.MEDIUM">{{ getPriorityLabel(TaskPriorityEnum.MEDIUM) }}</sl-option>
+            <sl-option [value]="TaskPriorityEnum.HIGH">{{ getPriorityLabel(TaskPriorityEnum.HIGH) }}</sl-option>
+          </sl-select>
+
+          <sl-select
+            placeholder="Status"
+            i18n-placeholder
+            ngDefaultControl
+            [formControl]="statusControl"
+          >
+            <sl-option [value]="TaskStatusEnum.NOT_STARTED">{{ getStatusLabel(TaskStatusEnum.NOT_STARTED) }}</sl-option>
+            <sl-option [value]="TaskStatusEnum.IN_PROGRESS">{{ getStatusLabel(TaskStatusEnum.IN_PROGRESS) }}</sl-option>
+            <sl-option [value]="TaskStatusEnum.BLOCKED">{{ getStatusLabel(TaskStatusEnum.BLOCKED) }}</sl-option>
+            <sl-option [value]="TaskStatusEnum.COMPLETED">{{ getStatusLabel(TaskStatusEnum.COMPLETED) }}</sl-option>
+          </sl-select>
+
+          <sl-input
+            type="date"
+            placeholder="Due Date"
+            i18n-placeholder
+            ngDefaultControl
+            [formControl]="dueDateControl"
+          >
+            <sl-icon name="calendar" slot="prefix" />
+          </sl-input>
+        </div>
+
+        <div class="task-form__tags">
+          <label i18n>Tags</label>
+          <div class="task-form__tags-input">
+            <sl-input
+              placeholder="Add a tag and press Enter..."
+              i18n-placeholder
+              ngDefaultControl
+              [formControl]="newTagControl"
+              (keydown.enter)="onTagKeyDown($any($event))"
+            >
+              <sl-icon name="tag" slot="prefix" />
+            </sl-input>
+            <sl-button
+              variant="default"
+              size="small"
+              (click)="addTag()"
+              i18n
+            >
+              Add Tag
+            </sl-button>
+          </div>
+          @if (tagsArray.length > 0) {
+            <div class="task-form__tags-list">
+              @for (tagControl of tagsArray.controls; track $index) {
+                <sl-tag variant="primary" removable (sl-remove)="removeTag($index)">
+                  {{ tagControl.value }}
+                </sl-tag>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </sl-details>
   </form>
 
-  @if (todos().length === 0) {
-    <div class="todo-empty__container">
-      <p i18n>No tasks yet. Add one above to get started!</p>
+  <!-- Task List -->
+  @if (sortedTasks().length === 0) {
+    <div class="task-empty__container">
+      @if (todos().length === 0) {
+        <p i18n>No tasks yet. Add one above to get started!</p>
+      } @else {
+        <p i18n>No tasks match your filters. Try adjusting your search criteria.</p>
+      }
     </div>
   } @else {
-    <ul class="todo-list__container">
-      @for (todo of todos(); track todo.id) {
-        <li class="todo-item" [class.completed]="todo.completed">
+    <ul class="task-list__container">
+      @for (todo of sortedTasks(); track todo.id) {
+        <li class="task-item" [class.completed]="todo.completed">
           <sl-checkbox
             [checked]="todo.completed"
             (sl-change)="toggleTodo(todo.id)"
           ></sl-checkbox>
-          <input
-            class="todo-item__title"
-            [class.completed]="todo.completed"
-            [value]="todo.title"
-            (blur)="updateTodoTitle(todo.id, $any($event.target).value)"
-            (keydown.enter)="$any($event.target).blur()"
-          />
-          <sl-button
-            class="button--icon"
-            variant="text"
-            (click)="deleteTodo(todo.id)"
-            i18n-label
-            label="Delete task"
-          >
-            <sl-icon name="trash" />
-          </sl-button>
+
+          <div class="task-item__content">
+            <div class="task-item__header">
+              <input
+                class="task-item__title"
+                [class.completed]="todo.completed"
+                [value]="todo.title"
+                (blur)="updateTodoTitle(todo.id, $any($event.target).value)"
+                (keydown.enter)="$any($event.target).blur()"
+              />
+
+              <div class="task-item__badges">
+                <sl-tag
+                  [variant]="getPriorityColor(todo.priority)"
+                  size="small"
+                >
+                  {{ getPriorityLabel(todo.priority) }}
+                </sl-tag>
+                <sl-tag
+                  [variant]="getStatusColor(todo.status)"
+                  size="small"
+                >
+                  {{ getStatusLabel(todo.status) }}
+                </sl-tag>
+              </div>
+            </div>
+
+            @if (todo.description || todo.dueDate || todo.tags.length > 0) {
+              <sl-details class="task-item__details">
+                <summary slot="summary" i18n>Details</summary>
+
+                @if (todo.description) {
+                  <p class="task-item__description">{{ todo.description }}</p>
+                }
+
+                @if (todo.dueDate) {
+                  <div class="task-item__due-date" [class.overdue]="isOverdue(todo.dueDate)">
+                    <sl-icon name="calendar" />
+                    <span>{{ todo.dueDate | date:'short' }}</span>
+                    @if (isOverdue(todo.dueDate)) {
+                      <sl-tag variant="danger" size="small" i18n>Overdue</sl-tag>
+                    }
+                  </div>
+                }
+
+                @if (todo.tags.length > 0) {
+                  <div class="task-item__tags">
+                    @for (tag of todo.tags; track tag) {
+                      <sl-tag variant="neutral" size="small">{{ tag }}</sl-tag>
+                    }
+                  </div>
+                }
+              </sl-details>
+            }
+
+            <sl-button
+              class="button--icon"
+              variant="text"
+              (click)="deleteTodo(todo.id)"
+              i18n-label
+              label="Delete task"
+            >
+              <sl-icon name="trash" />
+            </sl-button>
+          </div>
         </li>
       }
     </ul>
   }
 </main>
-

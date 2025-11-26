@@ -296,14 +296,101 @@
       <trans-unit id="5223269869856942684" datatype="html">
         <source>No tasks yet. Add one above to get started!</source>
       </trans-unit>
-      <trans-unit id="5802807461804205674" datatype="html">
-        <source>My Todo List</source>
-      </trans-unit>
       <trans-unit id="7801426068249327793" datatype="html">
         <source> I agree to the terms and privacy policy </source>
       </trans-unit>
       <trans-unit id="8038536423973970210" datatype="html">
         <source> This project demonstrates a simple todo list application built with Angular best practices. It showcases features like authentication, routing, state management, and more. </source>
+      </trans-unit>
+      <trans-unit id="1161299114153631702" datatype="html">
+        <source>Completed</source>
+      </trans-unit>
+      <trans-unit id="1341636531721064512" datatype="html">
+        <source>Filter by Status</source>
+      </trans-unit>
+      <trans-unit id="1780950485960518731" datatype="html">
+        <source>In Progress</source>
+      </trans-unit>
+      <trans-unit id="1917979079769004212" datatype="html">
+        <source>Due Date</source>
+      </trans-unit>
+      <trans-unit id="1953429831171058348" datatype="html">
+        <source> Clear Filters </source>
+      </trans-unit>
+      <trans-unit id="2425879611133856579" datatype="html">
+        <source>Enter description...</source>
+      </trans-unit>
+      <trans-unit id="2506799423809651300" datatype="html">
+        <source>All Statuses</source>
+      </trans-unit>
+      <trans-unit id="2574688541305190509" datatype="html">
+        <source>High Priority</source>
+      </trans-unit>
+      <trans-unit id="2734022681675842051" datatype="html">
+        <source>Priority</source>
+      </trans-unit>
+      <trans-unit id="325760272024181061" datatype="html">
+        <source> Advanced Options </source>
+      </trans-unit>
+      <trans-unit id="3980757604750257396" datatype="html">
+        <source>Filter by Tag</source>
+      </trans-unit>
+      <trans-unit id="4071362499864583859" datatype="html">
+        <source>Low Priority</source>
+      </trans-unit>
+      <trans-unit id="4419255670681936886" datatype="html">
+        <source>Created Date</source>
+      </trans-unit>
+      <trans-unit id="4447634166463841851" datatype="html">
+        <source>Add a tag and press Enter...</source>
+      </trans-unit>
+      <trans-unit id="4758864477410664186" datatype="html">
+        <source>My Task List</source>
+      </trans-unit>
+      <trans-unit id="5028777105388019087" datatype="html">
+        <source>Details</source>
+      </trans-unit>
+      <trans-unit id="5417294544487128504" datatype="html">
+        <source>All Tags</source>
+      </trans-unit>
+      <trans-unit id="5611592591303869712" datatype="html">
+        <source>Status</source>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+      </trans-unit>
+      <trans-unit id="5861843152219434948" datatype="html">
+        <source>Medium Priority</source>
+      </trans-unit>
+      <trans-unit id="6708150244620879386" datatype="html">
+        <source>No tasks match your filters. Try adjusting your search criteria.</source>
+      </trans-unit>
+      <trans-unit id="6844530879637820482" datatype="html">
+        <source>Filter by Priority</source>
+      </trans-unit>
+      <trans-unit id="7653026366651426469" datatype="html">
+        <source> Add Tag </source>
+      </trans-unit>
+      <trans-unit id="7699622144571229146" datatype="html">
+        <source>Sort by</source>
+      </trans-unit>
+      <trans-unit id="7886570921510760899" datatype="html">
+        <source>Tags</source>
+      </trans-unit>
+      <trans-unit id="7934385702624981244" datatype="html">
+        <source>All Priorities</source>
+      </trans-unit>
+      <trans-unit id="7956057693469748121" datatype="html">
+        <source>Not Started</source>
+      </trans-unit>
+      <trans-unit id="8513251607175535191" datatype="html">
+        <source>Search tasks...</source>
+      </trans-unit>
+      <trans-unit id="8547153724791757236" datatype="html">
+        <source>Overdue</source>
+      </trans-unit>
+      <trans-unit id="9081463435738465430" datatype="html">
+        <source>Blocked</source>
       </trans-unit>
     </body>
   </file>
