@@ -5,14 +5,16 @@ import { ENVIRONMENT } from '~core/tokens/environment.token';
 const getAuthEndpoints = (baseUrl: string) => ({
   v1: {
     register: `${baseUrl}/api/User/Register`,
-    login: `${baseUrl}/v1/authentication/login`,
-    refreshToken: `${baseUrl}/v1/authentication/token/refresh`,
+    login: `${baseUrl}/api/User/Login`,
+    refreshToken: `${baseUrl}/api/User/RefreshToken`,
   },
 });
 
 const getUserEndpoints = (baseUrl: string) => ({
   v1: {
-    user: `${baseUrl}/v1/user`,
+    all: `${baseUrl}/api/User/All`,
+    byId: (id: string | number) => `${baseUrl}/api/User/${id}`,
+    search: (username: string) => `${baseUrl}/api/User/Search/${encodeURIComponent(username)}`,
   },
 });
 
