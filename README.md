@@ -3,6 +3,23 @@ in progress
 
 TO DO:
 
+
+
+
+// my account page have some problemes
+
+
+
+
+
+
+
+
+
+
+
+
+
 features/
   tasks/  
     pages/
@@ -14,21 +31,21 @@ features/
 conception -> developement -> test
 
 
-the translation is broken for know
+
 
 //error page (404) show wrong image C:\Users\Achraf\Desktop\School\angular-app-21.0.0\src\app\features\error\pages\error-404\error-404.component.html
 
 // get rid of pikachu and pokemon
 
 
-
+/*
 cd dist/angularexampleapp/browser
 npx http-server -p 8080
+*/
 
 
 
-
-
+/*
 old limit
 "budgets": [
               {
@@ -42,3 +59,4 @@ old limit
                 "maximumError": "8kB"
               }
             ]
+*/
