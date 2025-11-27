@@ -20,7 +20,6 @@ import { cachingInterceptor } from '~core/interceptors/caching.interceptor';
 import { appRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { authenticationInterceptor } from '~core/interceptors/authentication.interceptor';
-import { provideCloudinaryLoader } from '@angular/common';
 import { ENVIRONMENT } from '~core/tokens/environment.token';
 import { environment } from '~environments/environment';
 import {
@@ -68,7 +67,6 @@ export const appConfig: ApplicationConfig = {
     ),
     // eslint-disable-next-line @typescript-eslint/no-deprecated
     provideAnimationsAsync(),
-    provideCloudinaryLoader('https://res.cloudinary.com/ismaestro/'),
     provideClientHydration(withEventReplay(), withI18nSupport(), withIncrementalHydration()),
   ],
 };

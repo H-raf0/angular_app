@@ -36,6 +36,11 @@
                 "glob": "**/*",
                 "input": "public",
                 "output": ""
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": ["@shoelace-style/shoelace/dist/themes/light.css", "src/styles/global.scss"],
