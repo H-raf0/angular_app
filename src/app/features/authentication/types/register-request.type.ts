@@ -4,3 +4,5 @@ export type RegisterRequest = {
   name: string;
   terms: boolean;
 };
+
+// ?

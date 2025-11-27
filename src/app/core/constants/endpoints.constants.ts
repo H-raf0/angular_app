@@ -4,7 +4,7 @@ import { ENVIRONMENT } from '~core/tokens/environment.token';
 
 const getAuthEndpoints = (baseUrl: string) => ({
   v1: {
-    authentication: `${baseUrl}/v1/authentication`,
+    register: `${baseUrl}/api/User/Register`,
     login: `${baseUrl}/v1/authentication/login`,
     refreshToken: `${baseUrl}/v1/authentication/token/refresh`,
   },
