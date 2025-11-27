@@ -227,8 +227,8 @@
         <target state="translated">Vous avez déjà un compte ? Connectez-vous</target>
       </trans-unit>
       <trans-unit id="4480466648551521017" datatype="html">
-        <source>Error 404: A Wild Error Appeared</source>
-        <target state="translated">Erreur 404 : Une erreur sauvage apparaît</target>
+        <source>Error 404: A ******* Error Appeared</source>
+        <target state="translated">Erreur 404 : Une ****** d'erreur est apparue</target>
       </trans-unit>
       <trans-unit id="7970590295953379592" datatype="html">
         <source>image alt</source>
