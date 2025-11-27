@@ -1,5 +1,4 @@
 import type { User } from '~features/authentication/types/user.type';
-import type { ApiResponse } from '~shared/types/api-response.types';
 
 export type RegisterResponseData = {
   accessToken: string;
@@ -7,4 +6,4 @@ export type RegisterResponseData = {
   user: User;
 };
 
-export type RegisterResponse = ApiResponse<RegisterResponseData>;
+export type RegisterResponse = RegisterResponseData;

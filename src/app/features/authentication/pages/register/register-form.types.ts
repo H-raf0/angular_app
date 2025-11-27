@@ -1,7 +1,7 @@
 import type { FormControl, FormGroup } from '@angular/forms';
 
 export type RegisterFormGroup = FormGroup<{
-  name: FormControl<string>;
+  username: FormControl<string>;
   email: FormControl<string>;
   password: FormControl<string>;
   confirmPassword: FormControl<string>;
@@ -9,7 +9,7 @@ export type RegisterFormGroup = FormGroup<{
 }>;
 
 export type RegisterFormValue = {
-  name: string;
+  username: string;
   email: string;
   password: string;
   confirmPassword: string;

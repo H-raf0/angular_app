@@ -13,7 +13,6 @@ import type {
 } from '~features/authentication/types/refresh-token.response.type';
 import type {
   RegisterResponse,
-  RegisterResponseData,
 } from '~features/authentication/types/register-response.type';
 import type { RegisterFormValue } from '~features/authentication/pages/register/register-form.types';
 import type { User } from '~features/authentication/types/user.type';
@@ -46,7 +45,7 @@ export class AuthenticationService {
     }),
   });
 
-  register(registerRequest: RegisterFormValue): Observable<RegisterResponseData> {
+  register(registerRequest: RegisterFormValue): Observable<RegisterResponse> {
     const payload = {
       ...registerRequest,
       email: registerRequest.email.toLowerCase(),
@@ -58,6 +57,9 @@ export class AuthenticationService {
           'Accept-Language': this.languageService.convertLocaleToAcceptLanguage(),
         },
       }),
+    ).pipe(
+      // preserve compatibility with previous API shape that returned { data: ... }
+      map((res) => (res as any).data ?? (res as any)),
     );
   }
 
@@ -69,7 +71,10 @@ export class AuthenticationService {
 
     return this.handleAuthResponse(
       this.http.post<LoginResponse>(this.endpoints.auth.v1.login, payload),
-    ).pipe(map((data) => data.user));
+    ).pipe(map((res) => {
+      const body = (res as any).data ?? (res as any);
+      return body.user as User;
+    }));
   }
 
   refreshToken(): Observable<RefreshTokenResponseData> {
@@ -79,7 +84,7 @@ export class AuthenticationService {
       this.http.post<RefreshTokenResponse>(this.endpoints.auth.v1.refreshToken, {
         refreshToken,
       }),
-    );
+    ).pipe(map((res) => (res as any).data ?? (res as any)));
   }
 
   logOut() {
@@ -87,15 +92,41 @@ export class AuthenticationService {
     this.removeTokens();
   }
 
-  private handleAuthResponse<T extends { data: { accessToken: string; refreshToken?: string } }>(
-    request$: Observable<T>,
-  ): Observable<T['data']> {
+  // Accept responses that either have a top-level token payload or a `{ data: ... }` envelope.
+  private handleAuthResponse<T>(request$: Observable<T>): Observable<T> {
     return request$.pipe(
       map((response) => {
-        this.saveTokens(response.data);
-        return response.data;
+        const tokens = this.extractTokens(response);
+        if (tokens?.accessToken) {
+          const { accessToken, refreshToken } = tokens;
+          if (refreshToken !== undefined) {
+            this.saveTokens({ accessToken, refreshToken });
+          } else {
+            this.saveTokens({ accessToken });
+          }
+        }
+        return response;
       }),
     );
+  }
+
+  private extractTokens(response: unknown): { accessToken?: string; refreshToken?: string } | null {
+    if (!response) return null;
+    const anyRes = response as any;
+
+    // Common shapes:
+    // - { data: { accessToken, refreshToken } }
+    // - { accessToken, refreshToken }
+    const candidate = anyRes.data ?? anyRes;
+
+    if (candidate && (candidate.accessToken || candidate.refreshToken)) {
+      return {
+        accessToken: candidate.accessToken,
+        refreshToken: candidate.refreshToken,
+      };
+    }
+
+    return null;
   }
 
   private saveTokens({

@@ -58,11 +58,11 @@ export class RegisterComponent implements OnInit {
   readonly authUrls = AUTH_URLS;
   readonly registerForm = this.createRegisterForm();
   readonly formControls = {
-    name: this.registerForm.get('name') as FormControl<string>,
-    email: this.registerForm.get('email') as FormControl<string>,
-    password: this.registerForm.get('password') as FormControl<string>,
-    confirmPassword: this.registerForm.get('confirmPassword') as FormControl<string>,
-    terms: this.registerForm.get('terms') as FormControl<boolean | null>,
+    username: this.registerForm.controls.username,
+    email: this.registerForm.controls.email,
+    password: this.registerForm.controls.password,
+    confirmPassword: this.registerForm.controls.confirmPassword,
+    terms: this.registerForm.controls.terms,
   };
   readonly formState = signal<RegisterFormState>({
     isLoading: false,
@@ -108,7 +108,7 @@ export class RegisterComponent implements OnInit {
 
   private createRegisterForm(): RegisterFormGroup {
     return this.formBuilder.group({
-      name: new FormControl<string>('', {
+      username: new FormControl<string>('', {
         validators: [Validators.required, Validators.minLength(2)],
         nonNullable: true,
       }),
