@@ -71,49 +71,6 @@ $pokedex-button-border-color: #7d7897;
       }
     }
 
-    &.button--pokemon-style::part(base) {
-      position: relative;
-      min-height: 0;
-      padding: var(--spacing-sm) var(--spacing-xl);
-      color: $pokedex-text-color;
-      background: $pokedex-background-color;
-      border: 3px solid $pokedex-button-border-color;
-      border-radius: var(--border-radius-sm);
-
-      &::before {
-        position: absolute;
-        top: 50%;
-        left: var(--spacing-xs);
-        content: '▶';
-        opacity: 0;
-        transform: translateY(-50%);
-        transition: opacity 0.1s;
-      }
-
-      &:hover {
-        color: $pokedex-text-color;
-
-        &::before {
-          opacity: 1;
-        }
-      }
-
-      &:active {
-        color: $pokedex-text-color;
-      }
-    }
-
-    &.button--pokemon-style::part(label) {
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-bold);
-      line-height: var(--line-height-md);
-      opacity: 0.8;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-
     &.button--image::part(base) {
       background: transparent;
       border: 0;

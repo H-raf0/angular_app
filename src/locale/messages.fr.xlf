@@ -230,9 +230,9 @@
         <source>Error 404: A Wild Error Appeared</source>
         <target state="new">Error 404: A Wild Error Appeared</target>
       </trans-unit>
-      <trans-unit id="6448505059864540544" datatype="html">
-        <source>ash and pikachu sad</source>
-        <target state="new">ash and pikachu sad</target>
+      <trans-unit id="7970590295953379592" datatype="html">
+        <source>image alt</source>
+        <target state="new">image alt</target>
       </trans-unit>
       <trans-unit id="8515623719828483173" datatype="html">
         <source> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </source>
@@ -486,18 +486,11 @@
         <source>Passwords do not match.</source>
         <target state="new">Passwords do not match.</target>
       </trans-unit>
-      <trans-unit id="8192371491020855861" datatype="html">
-        <source>Field required. PokeAPI does not found that pokemon name.</source>
-        <target state="new">Field required. PokeAPI does not found that pokemon name.</target>
-      </trans-unit>
       <trans-unit id="4201846903475880496" datatype="html">
         <source>Find more!</source>
         <target state="new">Find more!</target>
       </trans-unit>
-      <trans-unit id="7321419453389412321" datatype="html">
-        <source>Find a pokemon</source>
-        <target state="new">Find a pokemon</target>
-      </trans-unit>
+
       <trans-unit id="4310922273540502870" datatype="html">
         <source>Account settings saved. You&apos;re all set!</source>
         <target state="new">Account settings saved. You&apos;re all set!</target>

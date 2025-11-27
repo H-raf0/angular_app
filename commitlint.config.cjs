@@ -19,7 +19,6 @@ module.exports = {
         'core',
         'auth',
         'home',
-        'pokemon',
         'pokedex',
       ],
     ],

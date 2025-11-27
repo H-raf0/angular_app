@@ -140,8 +140,8 @@
       <trans-unit id="5907476126990913307" datatype="html">
         <source>Create account</source>
       </trans-unit>
-      <trans-unit id="6448505059864540544" datatype="html">
-        <source>ash and pikachu sad</source>
+      <trans-unit id="7970590295953379592" datatype="html">
+        <source>image alt</source>
       </trans-unit>
       <trans-unit id="6470465744110022708" datatype="html">
         <source>Do you have an account? Log in</source>
@@ -155,9 +155,6 @@
       <trans-unit id="7023829683035637619" datatype="html">
         <source>Angular blog</source>
       </trans-unit>
-      <trans-unit id="7321419453389412321" datatype="html">
-        <source>Find a pokemon</source>
-      </trans-unit>
       <trans-unit id="7358438134446811618" datatype="html">
         <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
       </trans-unit>
@@ -169,9 +166,6 @@
       </trans-unit>
       <trans-unit id="8183540845277493557" datatype="html">
         <source>Don&apos;t have an account yet? Register</source>
-      </trans-unit>
-      <trans-unit id="8192371491020855861" datatype="html">
-        <source>Field required. PokeAPI does not found that pokemon name.</source>
       </trans-unit>
       <trans-unit id="8355236492226718944" datatype="html">
         <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
