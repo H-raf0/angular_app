@@ -20,6 +20,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LanguageService } from '~core/services/language.service';
 import { AUTH_URLS } from '~core/constants/urls.constants';
 import type { User } from '~features/authentication/types/user.type';
+import { SlInputUniqueIdDirective } from '~shared/directives/sl-input-unique-id.directive';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -35,6 +36,7 @@ import { TrimDirective } from '~shared/directives/trim.directive';
     ReactiveFormsModule,
     SlInputIconFocusDirective,
     AppSlSelectControlDirective,
+    SlInputUniqueIdDirective,
     ThemeButtonComponent,
     TrimDirective,
   ],
