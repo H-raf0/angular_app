@@ -9,10 +9,10 @@ TO DO:
 // my account page have some problemes
 
 
+//login with inexistant account give unkown error, i need to give more details to the user about that error
 
 
-
-
+// manage authentifications and authorization
 
 
 
