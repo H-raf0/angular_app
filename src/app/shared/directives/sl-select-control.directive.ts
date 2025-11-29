@@ -12,27 +12,40 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
   host: {
-    '[attr.value]': 'value()',
     '(sl-change)': 'onSlChange()',
   },
 })
 export class AppSlSelectControlDirective implements ControlValueAccessor {
   private readonly el = inject(ElementRef);
 
-  // @ts-expect-error - value used by angular forms
-  // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
-  private onChangeFn = (value: unknown) => {};
+  // onChange receives the new value from the control
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private onChangeFn: (value: any) => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onTouchedFn = () => {};
 
   readonly value = model('');
 
-  writeValue(value: string): void {
-    this.value.set(value);
+  // When Angular writes a value into the control, update the web component
+  writeValue(value: string | null): void {
+    const v = value ?? '';
+    this.value.set(v);
+    try {
+      // Update the native element property so the sl-select reflects the value
+      if (this.el && this.el.nativeElement) {
+        // assign property rather than attribute
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (this.el.nativeElement as any).value = v;
+      }
+    } catch {
+      // ignore DOM errors
+    }
   }
 
-  registerOnChange(function_: () => void): void {
+  // register change/touch callbacks
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  registerOnChange(function_: (value: any) => void): void {
     this.onChangeFn = function_;
   }
 

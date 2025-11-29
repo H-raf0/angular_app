@@ -65,7 +65,9 @@ export class MockAuthStorageService {
     return user ? this.storedUserToUser(user) : null;
   }
 
-  updateUser(id: string, updates: { name?: string; language?: Language }): User | null {
+  // Accept both `name` and `username` keys so client and server naming
+  // mismatches don't break mock updates.
+  updateUser(id: string, updates: { name?: string; username?: string; language?: Language }): User | null {
     const users = this.getAllUsers();
     const userIndex = users.findIndex((u) => u.id === id);
 
@@ -73,11 +75,18 @@ export class MockAuthStorageService {
       return null;
     }
 
-    users[userIndex] = {
+    // Normalize username -> name for stored users
+    const applied = {
       ...users[userIndex],
       ...updates,
       updatedAt: new Date().toISOString(),
     };
+
+    if (updates.username) {
+      applied.name = updates.username;
+    }
+
+    users[userIndex] = applied;
 
     this.saveUsers(users);
     return this.storedUserToUser(users[userIndex]);
