@@ -16,6 +16,7 @@ import { passwordValidator } from '~shared/validators/password.validator';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
 import { LowercaseDirective } from '~shared/directives/lowercase.directive';
 import { TrimDirective } from '~shared/directives/trim.directive';
+import { SlInputUniqueIdDirective } from '~shared/directives/sl-input-unique-id.directive';
 import type { ApiErrorResponse } from '~shared/types/api-response.types';
 import { API_ERROR_CODES } from '~core/constants/api-error-codes.constants';
 import { AlertService } from '~core/services/ui/alert.service';
@@ -37,6 +38,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
     ReactiveFormsModule,
     RouterModule,
     SlInputIconFocusDirective,
+    SlInputUniqueIdDirective,
     LowercaseDirective,
     TrimDirective,
   ],

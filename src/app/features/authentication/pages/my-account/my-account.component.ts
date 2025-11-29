@@ -59,7 +59,7 @@ export class MyAccountComponent implements OnInit {
   name = new FormControl('', [Validators.required, Validators.minLength(2)]);
   email = new FormControl('');
   language = new FormControl<Language>(Language.EN_US, [Validators.required]);
-  password = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  password = new FormControl('', [Validators.minLength(6)]);
   updateUserForm = this.formBuilder.group({
     name: this.name,
     language: this.language,
