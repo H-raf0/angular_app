@@ -226,9 +226,9 @@
         <source>Do you have an account? Log in</source>
         <target state="translated">Vous avez déjà un compte ? Connectez-vous</target>
       </trans-unit>
-      <trans-unit id="4480466648551521017" datatype="html">
+      <trans-unit id="2718557609302741706" datatype="html">
         <source>Error 404: A ******* Error Appeared</source>
-        <target state="translated">Erreur 404 : Une ****** d'erreur est apparue</target>
+        <target state="translated">Erreur 404 : Une ****** d&apos;erreur est apparue</target>
       </trans-unit>
       <trans-unit id="7970590295953379592" datatype="html">
         <source>image alt</source>

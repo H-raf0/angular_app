@@ -41,9 +41,6 @@
       <trans-unit id="1543538730036692975" datatype="html">
         <source>Passwords do not match.</source>
       </trans-unit>
-      <trans-unit id="1711725680914111687" datatype="html">
-        <source>Pokémon not found. Double-check the name and try again!</source>
-      </trans-unit>
       <trans-unit id="1949800099101277248" datatype="html">
         <source>Languages</source>
       </trans-unit>
@@ -107,7 +104,7 @@
       <trans-unit id="4346349683507785886" datatype="html">
         <source> Angular Google Developer Experts </source>
       </trans-unit>
-      <trans-unit id="4480466648551521017" datatype="html">
+      <trans-unit id="2718557609302741706" datatype="html">
         <source>Error 404: A ******* Error Appeared</source>
       </trans-unit>
       <trans-unit id="4583602242273481020" datatype="html">

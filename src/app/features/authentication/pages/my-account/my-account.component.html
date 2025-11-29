@@ -42,6 +42,26 @@
       </sl-input>
     </div>
     <div class="form-control__container">
+      <sl-input
+        id="my-account-password-input"
+        class="input--primary"
+        type="password"
+        placeholder="Enter your password"
+        label="Password"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        appTrim
+        required
+        ngDefaultControl
+        [attr.help-text]="translations.fieldRequired"
+        [formControl]="password"
+      >
+        <sl-icon name="lock" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
       <sl-select
         label="Language"
         class="select--primary"

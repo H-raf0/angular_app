@@ -57,14 +57,16 @@ export class MyAccountComponent implements OnInit {
   name = new FormControl('', [Validators.required, Validators.minLength(2)]);
   email = new FormControl('');
   language = new FormControl<Language>(Language.EN_US, [Validators.required]);
+  password = new FormControl('', [Validators.required, Validators.minLength(6)]);
   updateUserForm = this.formBuilder.group({
     name: this.name,
     language: this.language,
     email: this.email,
+    password: this.password,
   });
 
   ngOnInit() {
-    this.email.disable();
+    //this.email.disable();
     this.loadUserInfo();
   }
 
@@ -99,6 +101,7 @@ export class MyAccountComponent implements OnInit {
       .updateUser({
         name: formValue.name!,
         language: formValue.language!,
+        password: formValue.password!,
       })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({

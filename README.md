@@ -14,6 +14,8 @@ TO DO:
 
 // manage authentifications and authorization
 
+// the front verify that the input is correct but not the back end
+
 
 
 
@@ -33,9 +35,8 @@ conception -> developement -> test
 
 
 
-//error page (404) show wrong image C:\Users\Achraf\Desktop\School\angular-app-21.0.0\src\app\features\error\pages\error-404\error-404.component.html
 
-// get rid of pikachu and pokemon
+
 
 
 /*

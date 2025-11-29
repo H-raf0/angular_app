@@ -13,7 +13,8 @@ const getAuthEndpoints = (baseUrl: string) => ({
 const getUserEndpoints = (baseUrl: string) => ({
   v1: {
     all: `${baseUrl}/api/User/All`,
-    me: `${baseUrl}/api/User/me`,
+    me: `${baseUrl}/api/User/Me`,
+    updateMe: `${baseUrl}/api/User/UpdateMe`,
     byId: (id: string | number) => `${baseUrl}/api/User/${id}`,
     search: (username: string) => `${baseUrl}/api/User/Search/${encodeURIComponent(username)}`,
   },

@@ -37,7 +37,7 @@ export class UserService {
     const token = this.storageService?.getItem(ACCESS_TOKEN_KEY);
     const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-    return this.http.put<User>('/api/User/somethingToUpdate', updateUserRequest, { headers });
+    return this.http.put<User>(this.endpoints.user.v1.updateMe, updateUserRequest, { headers });
   }
 
   private mockGetMe(): Observable<User> {
