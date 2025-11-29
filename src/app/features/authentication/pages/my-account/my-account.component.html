@@ -19,6 +19,8 @@
         i18n-placeholder
         appSlInputIconFocus
         appTrim
+        clearable
+        (sl-clear)="name.setValue('')"
         required
         ngDefaultControl
         [attr.help-text]="translations.fieldRequired"
@@ -37,6 +39,8 @@
         i18n-label
         i18n-placeholder
         required
+        clearable
+        (sl-clear)="email.setValue('')"
         ngDefaultControl
         [formControl]="email"
       >

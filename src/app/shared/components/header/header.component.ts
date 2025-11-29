@@ -55,7 +55,23 @@ export class HeaderComponent {
   }
 
   closeMenu(): void {
-    void this.avatarDropdown()?.nativeElement.hide();
+    // If a focusable element inside the dropdown currently has focus,
+    // blur it before hiding the dropdown so we don't hide a focused element
+    // (which causes accessibility errors). See WAI-ARIA guidance.
+    try {
+      const dropdownEl = this.avatarDropdown()?.nativeElement;
+      const active = typeof document !== 'undefined' ? (document.activeElement as HTMLElement | null) : null;
+      if (active && dropdownEl && dropdownEl.contains(active)) {
+        active.blur();
+      }
+      void dropdownEl?.hide();
+    } catch (err) {
+      // swallow errors - we don't want hiding the menu to break on unexpected DOM issues
+      // eslint-disable-next-line no-console
+      console.warn('Error while closing avatar dropdown:', err);
+      void this.avatarDropdown()?.nativeElement.hide();
+    }
+
     this.menuOpen.set(false);
   }
 
