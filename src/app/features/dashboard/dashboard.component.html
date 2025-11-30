@@ -58,47 +58,76 @@
           <div class="card-body">
             <!-- Simple SVG Line Chart -->
             <div class="chart-container">
-              <svg width="100%" height="200" viewBox="0 0 500 200" preserveAspectRatio="none">
-                <!-- Y-axis -->
+              <svg width="100%" height="420" viewBox="0 0 750 420" preserveAspectRatio="xMidYMid meet">
+                
+                <!-- Y-axis line -->
                 <line
-                  x1="30"
-                  y1="10"
-                  x2="30"
-                  y2="180"
+                  x1="40"
+                  y1="30"
+                  x2="40"
+                  y2="390"
                   stroke="currentColor"
                   stroke-width="1"
                   opacity="0.3"
                 />
-                <!-- X-axis -->
+                
+                <!-- X-axis line -->
                 <line
-                  x1="30"
-                  y1="180"
-                  x2="480"
-                  y2="180"
+                  x1="40"
+                  y1="390"
+                  x2="650"
+                  y2="390"
                   stroke="currentColor"
                   stroke-width="1"
                   opacity="0.3"
                 />
 
-                <!-- Price line -->
-                <polyline
-                  fill="none"
-                  stroke="var(--brand-color-primary)"
-                  stroke-width="2"
-                  [attr.points]="getChartPoints(selectedStock.priceHistory)"
-                />
+                <!-- Grid lines and Y-axis labels -->
+                <g class="grid-lines">
+                  <ng-container *ngFor="let t of getYTicks(selectedStock.priceHistory)">
+                    <!-- Dotted grid line -->
+                    <line 
+                      x1="40" 
+                      x2="650" 
+                      [attr.y1]="t.y" 
+                      [attr.y2]="t.y" 
+                      stroke="rgba(255,255,255,0.03)" 
+                      stroke-width="1" 
+                      stroke-dasharray="4"
+                    />
+                    <!-- Price Text: Centered vertically on line using dy="0.32em" -->
+                    <text class="y-label" [attr.x]="10" [attr.y]="t.y" dy="0.32em">{{ t.label }}</text>
+                  </ng-container>
+                </g>
 
-                <!-- Data points -->
-                <circle
-                  r="3"
-                  fill="var(--brand-color-primary)"
-                  [attr.cx]="point.x"
-                  [attr.cy]="point.y"
-                  *ngFor="
-                    let point of getChartCoordinates(selectedStock.priceHistory);
-                    trackBy: trackByPointIndex
-                  "
-                />
+                <!-- Candlestick Rendering -->
+                <g *ngFor="let c of getCandles(selectedStock.priceHistory); trackBy: trackByPointIndex">
+                  <!-- Wick -->
+                  <line
+                    [attr.x1]="c.x"
+                    [attr.x2]="c.x"
+                    [attr.y1]="c.highY"
+                    [attr.y2]="c.lowY"
+                    [attr.stroke]="c.color === 'buy' ? 'var(--chart-buy)' : 'var(--chart-sell)'"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <!-- Body -->
+                  <rect
+                    [attr.x]="c.x - c.width / 2"
+                    [attr.width]="c.width"
+                    [attr.y]="c.bodyY"
+                    [attr.height]="c.bodyHeight"
+                    [attr.fill]="c.color === 'buy' ? 'var(--chart-buy)' : 'var(--chart-sell)'"
+                  />
+                </g>
+
+                <!-- X-axis labels -->
+                <g class="x-labels">
+                  <ng-container *ngFor="let t of getXTicks(selectedStock.priceHistory)">
+                    <text class="x-label" [attr.x]="t.x" [attr.y]="410" text-anchor="middle">{{ t.label }}</text>
+                  </ng-container>
+                </g>
               </svg>
             </div>
 
@@ -127,6 +156,15 @@
                 (click)="buyStock(selectedStock)"
               >
                 🛒 Buy
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                i18n
+                [disabled]="!canSell()"
+                (click)="sellStock(selectedStock)"
+              >
+                💸 Sell
               </button>
             </div>
 

@@ -32,8 +32,9 @@
   --brand-color-tertiary: var(--primitive-vivid-pink-mixed);
 
   // General
-  --page-color: var(--full-contrast);
+  // Page color should use the dark page background in dark mode (cards/panels)
   --page-background: var(--primitive-gray-1000);
+  --page-color: var(--page-background);
 
   // Texts
   --text-color-primary: var(--primary-contrast);

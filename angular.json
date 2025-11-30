@@ -44,7 +44,6 @@
               }
             ],
             "styles": [
-              "node_modules/@nebular/theme/styles/prebuilt/default.css",
               "@shoelace-style/shoelace/dist/themes/light.css",
               "src/styles/global.scss"
             ],

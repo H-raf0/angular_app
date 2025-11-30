@@ -65,6 +65,32 @@ export class DashboardService {
     return this.mockStocks;
   }
 
+  /**
+   * Fetch latest stocks from backend.
+   *
+   * NOTE: This currently simulates a backend call and returns a Promise that
+   * slightly perturbs the current mock prices. When your real backend is
+   * available, replace the body with an `HttpClient` call such as:
+   * `return this.http.get<Stock[]>('/api/stocks').toPromise();`
+   */
+  async fetchStocksFromBackend(): Promise<Stock[]> {
+    // simulate network latency
+    await new Promise((r) => setTimeout(r, 200));
+
+    // mutate mockStocks with small random fluctuations to simulate live updates
+    this.mockStocks = this.mockStocks.map((s) => {
+      const prev = s.price;
+      // random fluctuation +/- ~1%
+      const rnd = (Math.random() - 0.5) * 0.02;
+      const newPrice = Math.round(prev * (1 + rnd) * 100) / 100;
+      const priceHistory = [...s.priceHistory, newPrice].slice(-20);
+      const change = Math.round(((newPrice - prev) / prev) * 100 * 100) / 100;
+      return { ...s, price: newPrice, priceHistory, change } as Stock;
+    });
+
+    return this.mockStocks;
+  }
+
   getPortfolio(): Portfolio {
     return this.portfolioSubject.value;
   }
@@ -94,7 +120,55 @@ export class DashboardService {
       balance: current.balance - cost,
       stocks: updatedStocks,
     });
+    // Simulate a price impact when buying, proportional to quantity
+    this.applyPriceImpact(stock, 'buy', quantity);
 
     return true;
+  }
+
+  sellStock(stockId: string, quantity: number): boolean {
+    const stock = this.mockStocks.find((s) => s.id === stockId);
+    if (!stock) return false;
+
+    const current = this.portfolioSubject.value;
+    const symbol = stock.symbol;
+    const owned = current.stocks[symbol] || 0;
+    if (owned < quantity) return false;
+
+    const proceeds = stock.price * quantity;
+    const updatedStocks = { ...current.stocks };
+    updatedStocks[symbol] = owned - quantity;
+    if (updatedStocks[symbol] <= 0) {
+      delete updatedStocks[symbol];
+    }
+
+    this.portfolioSubject.next({
+      balance: current.balance + proceeds,
+      stocks: updatedStocks,
+    });
+
+    // Simulate a price impact when selling, proportional to quantity
+    this.applyPriceImpact(stock, 'sell', quantity);
+
+    return true;
+  }
+
+  private applyPriceImpact(stock: Stock, type: 'buy' | 'sell', quantity = 1): void {
+    const prevPrice = stock.price;
+
+    // Impact scales with quantity but with diminishing returns (sqrt), plus a small random factor.
+    const qtyFactor = Math.sqrt(Math.max(1, quantity));
+    const base = 0.5; // minimum base impact percent
+    const impactPercent = Math.min(30, base + qtyFactor * 0.8 + Math.random() * Math.min(2, qtyFactor * 0.3));
+
+    const factor = type === 'buy' ? 1 + impactPercent / 100 : 1 - impactPercent / 100;
+    const newPrice = Math.round(prevPrice * factor * 100) / 100;
+
+    // push new price to history and keep history length reasonable (retain more points)
+    stock.priceHistory = [...stock.priceHistory, newPrice].slice(-250);
+
+    // update stock change as percentage vs previous
+    stock.change = Math.round(((newPrice - prevPrice) / prevPrice) * 100 * 100) / 100;
+    stock.price = newPrice;
   }
 }
