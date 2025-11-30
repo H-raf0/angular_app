@@ -14,7 +14,7 @@ import { AuthenticationService } from '~features/authentication/services/authent
 import { LanguageSelectorComponent } from '~shared/components/language-selector/language-selector.component';
 import { ThemeButtonComponent } from '~shared/components/theme-button/theme-button.component';
 import { translations } from '~locale/translations';
-import { AUTH_URLS, ROOT_URLS, TODO_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, ROOT_URLS, TODO_URLS, DASHBOARD_URLS } from '~core/constants/urls.constants';
 import type { SlDropdown } from '@shoelace-style/shoelace';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
@@ -43,6 +43,7 @@ export class HeaderComponent {
   readonly TODO_URLS = TODO_URLS;
   readonly ROOT_URLS = ROOT_URLS;
   readonly AUTH_URLS = AUTH_URLS;
+  readonly DASHBOARD_URLS = DASHBOARD_URLS;
   readonly translations = translations;
 
   readonly avatarDropdown: Signal<ElementRef<SlDropdown> | undefined> = viewChild('avatarDropdown');
@@ -60,7 +61,8 @@ export class HeaderComponent {
     // (which causes accessibility errors). See WAI-ARIA guidance.
     try {
       const dropdownEl = this.avatarDropdown()?.nativeElement;
-      const active = typeof document !== 'undefined' ? (document.activeElement as HTMLElement | null) : null;
+      const active =
+        typeof document !== 'undefined' ? (document.activeElement as HTMLElement | null) : null;
       if (active && dropdownEl && dropdownEl.contains(active)) {
         active.blur();
       }

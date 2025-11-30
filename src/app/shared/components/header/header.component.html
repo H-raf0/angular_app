@@ -24,7 +24,7 @@
             width="48"
             height="48"
             priority
-            style="width: 48px; height: 48px;"
+            style="width: 48px; height: 48px"
           />
         </a>
       </div>
@@ -33,11 +33,7 @@
     <ng-template #githubNavItem>
       <!-- GITHUB -->
       <div class="nav__item">
-        <a
-          class="nav__link"
-          href="https://github.com/H-raf0/angular_app"
-          target="_blank"
-        >
+        <a class="nav__link" href="https://github.com/H-raf0/angular_app" target="_blank">
           <img
             class="github-logo__image"
             ngSrc="assets/icons/github-mark-white_nkewl9.png"
@@ -46,7 +42,7 @@
             height="32"
             width="32"
             priority
-            style="width: 32px; height: auto;"
+            style="width: 32px; height: auto"
           />
         </a>
       </div>
@@ -119,13 +115,27 @@
         </a>
       </div>
 
+      <!-- DASHBOARD -->
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="DASHBOARD_URLS.list"
+          (click)="closeMenu()"
+        >
+          Dashboard
+        </a>
+      </div>
+
       <ng-container [ngTemplateOutlet]="githubNavItem" />
 
       <!-- USER MENU -->
       <div class="nav__item">
         <sl-dropdown #avatarDropdown>
           <sl-button class="dropdown-button--avatar" slot="trigger">
-            <sl-icon name="person-circle" style="font-size: 2rem;" />
+            <sl-icon name="person-circle" style="font-size: 2rem" />
           </sl-button>
 
           <div class="dropdown__content-container">

@@ -1,38 +1,20 @@
-import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  NbLayoutModule,
-  NbCardModule,
-  NbButtonModule,
-  NbIconModule,
-  NbListModule,
-  NbThemeModule,
-} from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { DashboardService, Stock, Portfolio } from './dashboard.service';
+import type { Portfolio, Stock } from './dashboard.service';
+import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    NbLayoutModule,
-    NbCardModule,
-    NbButtonModule,
-    NbIconModule,
-    NbListModule,
-    NbThemeModule,
-    NbEvaIconsModule,
-  ],
-  providers: [NbThemeModule.forRoot({ name: 'default' }).providers || []],
+  imports: [CommonModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent implements OnInit {
-  private dashboardService = inject(DashboardService);
+  private readonly dashboardService = inject(DashboardService);
 
   stocks: Stock[] = [];
   selectedStock: Stock | null = null;
@@ -66,8 +48,8 @@ export class DashboardComponent implements OnInit {
 
   openAddMoneyDialog(): void {
     const amount = prompt('Enter amount to add:', '1000');
-    if (amount && !isNaN(parseFloat(amount))) {
-      this.dashboardService.addMoney(parseFloat(amount));
+    if (amount && !Number.isNaN(Number.parseFloat(amount))) {
+      this.dashboardService.addMoney(Number.parseFloat(amount));
     }
   }
 
@@ -80,15 +62,15 @@ export class DashboardComponent implements OnInit {
     const xStep = width / (priceHistory.length - 1 || 1);
 
     return priceHistory
-      .map((price, i) => {
-        const x = 30 + i * xStep;
-        const y = 180 - ((price - minPrice) / range) * height;
-        return `${x},${y}`;
+      .map((price, index) => {
+        const xPos = 30 + index * xStep;
+        const yPos = 180 - ((price - minPrice) / range) * height;
+        return `${xPos},${yPos}`;
       })
       .join(' ');
   }
 
-  getChartCoordinates(priceHistory: number[]): Array<{ x: number; y: number }> {
+  getChartCoordinates(priceHistory: number[]): { x: number; y: number }[] {
     const minPrice = Math.min(...priceHistory);
     const maxPrice = Math.max(...priceHistory);
     const range = maxPrice - minPrice || 1;
@@ -96,9 +78,17 @@ export class DashboardComponent implements OnInit {
     const height = 170;
     const xStep = width / (priceHistory.length - 1 || 1);
 
-    return priceHistory.map((price, i) => ({
-      x: 30 + i * xStep,
+    return priceHistory.map((price, index) => ({
+      x: 30 + index * xStep,
       y: 180 - ((price - minPrice) / range) * height,
-    }));
+    })) as { x: number; y: number }[];
+  }
+
+  trackByStockId(_index: number, stock: Stock): string | number {
+    return stock.id;
+  }
+
+  trackByPointIndex(index: number): number {
+    return index;
   }
 }

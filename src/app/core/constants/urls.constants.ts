@@ -4,6 +4,7 @@ import {
   ROOT_PATHS,
   TODO_PATHS,
   USER_PATHS,
+  DASHBOARD_PATHS,
 } from '~core/constants/paths.constants';
 
 export const ROOT_URLS = {
@@ -22,6 +23,10 @@ export const TODO_URLS = {
 
 export const USER_URLS = {
   todos: `/${USER_PATHS.base}/${USER_PATHS.todos}`,
+};
+
+export const DASHBOARD_URLS = {
+  list: `/${DASHBOARD_PATHS.base}`,
 };
 
 export const ERROR_URLS = {

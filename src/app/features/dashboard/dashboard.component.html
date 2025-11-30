@@ -1,135 +1,155 @@
-<nb-layout>
-  <nb-layout-header fixed>
-    <div class="header-container">
-      <h1>Stock Dashboard</h1>
-      <div class="header-right">
-        <span class="balance">Balance: ${{ portfolio?.balance | number: '1.2-2' }}</span>
-        <button nbButton status="success" (click)="openAddMoneyDialog()">
-          <nb-icon icon="plus-outline"></nb-icon>
-          Add Money
-        </button>
+<main class="dashboard-main">
+  <div class="header-container">
+    <h1 i18n>Stock Dashboard</h1>
+    <div class="header-right">
+      <span class="balance" i18n>Balance: ${{ portfolio?.balance | number: '1.2-2' }}</span>
+      <button type="button" class="btn btn-primary" i18n (click)="openAddMoneyDialog()">
+        + Add Money
+      </button>
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+    <!-- Left Sidebar: Company List -->
+    <div class="sidebar">
+      <div class="card">
+        <div class="card-header">
+          <h3 i18n>Companies</h3>
+        </div>
+        <div class="card-body">
+          <ul class="companies-list">
+            <li
+              *ngFor="let stock of stocks; trackBy: trackByStockId"
+              class="company-item-wrapper"
+              [class.active]="selectedStock?.id === stock.id"
+              (click)="selectStock(stock)"
+              role="option"
+              tabindex="0"
+            >
+              <div class="company-item">
+                <strong>{{ stock.symbol }}</strong>
+                <small>{{ stock.name }}</small>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </nb-layout-header>
 
-  <nb-layout-column>
-    <div class="dashboard-container">
-      <!-- Left Sidebar: Company List -->
-      <div class="sidebar">
-        <nb-card>
-          <nb-card-header>Companies</nb-card-header>
-          <nb-card-body>
-            <nb-list>
-              <nb-list-item
-                *ngFor="let stock of stocks"
-                [class.active]="selectedStock?.id === stock.id"
-                (click)="selectStock(stock)"
-              >
-                <div class="company-item">
-                  <strong>{{ stock.symbol }}</strong>
-                  <small>{{ stock.name }}</small>
-                </div>
-              </nb-list-item>
-            </nb-list>
-          </nb-card-body>
-        </nb-card>
-      </div>
-
-      <!-- Main Content: Stock Details -->
-      <div class="main-content">
-        @if (selectedStock) {
-          <nb-card>
-            <nb-card-header>
-              <div class="stock-header">
-                <div>
-                  <h2>{{ selectedStock.name }} ({{ selectedStock.symbol }})</h2>
-                  <p class="price">Price: ${{ selectedStock.price | number: '1.2-2' }}</p>
-                  <p
-                    class="change"
-                    [class.positive]="selectedStock.change >= 0"
-                    [class.negative]="selectedStock.change < 0"
-                  >
-                    {{ selectedStock.change >= 0 ? '+' : '' }}{{ selectedStock.change }}%
-                  </p>
-                </div>
-              </div>
-            </nb-card-header>
-            <nb-card-body>
-              <!-- Simple SVG Line Chart -->
-              <div class="chart-container">
-                <svg width="100%" height="200" viewBox="0 0 500 200" preserveAspectRatio="none">
-                  <!-- Y-axis -->
-                  <line x1="30" y1="10" x2="30" y2="180" stroke="#999" stroke-width="1" />
-                  <!-- X-axis -->
-                  <line x1="30" y1="180" x2="480" y2="180" stroke="#999" stroke-width="1" />
-
-                  <!-- Price line -->
-                  <polyline
-                    [attr.points]="getChartPoints(selectedStock.priceHistory)"
-                    fill="none"
-                    stroke="#3366FF"
-                    stroke-width="2"
-                  />
-
-                  <!-- Data points -->
-                  <circle
-                    *ngFor="let point of getChartCoordinates(selectedStock.priceHistory)"
-                    [attr.cx]="point.x"
-                    [attr.cy]="point.y"
-                    r="3"
-                    fill="#3366FF"
-                  />
-                </svg>
-              </div>
-
-              <!-- Buy Stock Section -->
-              <div class="buy-section">
-                <div class="quantity-input">
-                  <label>Quantity:</label>
-                  <input type="number" [(ngModel)]="buyQuantity" min="1" class="input-field" />
-                </div>
-                <p class="total-cost">
-                  Total Cost: ${{ selectedStock.price * buyQuantity | number: '1.2-2' }}
-                </p>
-                <button
-                  nbButton
-                  status="primary"
-                  (click)="buyStock(selectedStock)"
-                  [disabled]="
-                    buyQuantity <= 0 ||
-                    selectedStock.price * buyQuantity > (portfolio?.balance || 0)
-                  "
+    <!-- Main Content: Stock Details -->
+    <div class="main-content">
+      @if (selectedStock) {
+        <div class="card">
+          <div class="card-header">
+            <div class="stock-header">
+              <div>
+                <h2 i18n>{{ selectedStock.name }} ({{ selectedStock.symbol }})</h2>
+                <p class="price" i18n>Price: ${{ selectedStock.price | number: '1.2-2' }}</p>
+                <p
+                  class="change"
+                  [class.positive]="selectedStock.change >= 0"
+                  [class.negative]="selectedStock.change < 0"
                 >
-                  <nb-icon icon="shopping-cart-outline"></nb-icon>
-                  Buy
-                </button>
+                  {{ selectedStock.change >= 0 ? '+' : '' }}{{ selectedStock.change }}%
+                </p>
               </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- Simple SVG Line Chart -->
+            <div class="chart-container">
+              <svg width="100%" height="200" viewBox="0 0 500 200" preserveAspectRatio="none">
+                <!-- Y-axis -->
+                <line
+                  x1="30"
+                  y1="10"
+                  x2="30"
+                  y2="180"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  opacity="0.3"
+                />
+                <!-- X-axis -->
+                <line
+                  x1="30"
+                  y1="180"
+                  x2="480"
+                  y2="180"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  opacity="0.3"
+                />
 
-              <!-- Portfolio Holdings -->
-              @if (portfolio && portfolio.stocks[selectedStock.symbol]) {
-                <div class="holdings">
-                  <h4>Your Holdings</h4>
-                  <p>
-                    You own {{ portfolio.stocks[selectedStock.symbol] }} shares worth ${{
-                      selectedStock.price * portfolio.stocks[selectedStock.symbol] | number: '1.2-2'
-                    }}
-                  </p>
-                </div>
-              }
-            </nb-card-body>
-          </nb-card>
-        } @else {
-          <nb-card>
-            <nb-card-body>
-              <p>Select a company from the list to view details</p>
-            </nb-card-body>
-          </nb-card>
-        }
-      </div>
+                <!-- Price line -->
+                <polyline
+                  fill="none"
+                  stroke="var(--brand-color-primary)"
+                  stroke-width="2"
+                  [attr.points]="getChartPoints(selectedStock.priceHistory)"
+                />
+
+                <!-- Data points -->
+                <circle
+                  r="3"
+                  fill="var(--brand-color-primary)"
+                  [attr.cx]="point.x"
+                  [attr.cy]="point.y"
+                  *ngFor="
+                    let point of getChartCoordinates(selectedStock.priceHistory);
+                    trackBy: trackByPointIndex
+                  "
+                />
+              </svg>
+            </div>
+
+            <!-- Buy Stock Section -->
+            <div class="buy-section">
+              <div class="quantity-input">
+                <label for="quantity" i18n>Quantity:</label>
+                <input
+                  id="quantity"
+                  type="number"
+                  min="1"
+                  class="input-field"
+                  [(ngModel)]="buyQuantity"
+                />
+              </div>
+              <p class="total-cost" i18n>
+                Total Cost: ${{ selectedStock.price * buyQuantity | number: '1.2-2' }}
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                i18n
+                [disabled]="
+                  buyQuantity <= 0 || selectedStock.price * buyQuantity > (portfolio?.balance || 0)
+                "
+                (click)="buyStock(selectedStock)"
+              >
+                🛒 Buy
+              </button>
+            </div>
+
+            <!-- Portfolio Holdings -->
+            @if (portfolio && portfolio.stocks[selectedStock.symbol]) {
+              <div class="holdings">
+                <h4 i18n>Your Holdings</h4>
+                <p i18n>
+                  You own {{ portfolio.stocks[selectedStock.symbol] }} shares worth ${{
+                    selectedStock.price * portfolio.stocks[selectedStock.symbol] | number: '1.2-2'
+                  }}
+                </p>
+              </div>
+            }
+          </div>
+        </div>
+      } @else {
+        <div class="card">
+          <div class="card-body">
+            <p class="empty-state" i18n>Select a company from the list to view details</p>
+          </div>
+        </div>
+      }
     </div>
-  </nb-layout-column>
-
-  <nb-layout-footer>
-    <div class="footer">© Stock Dashboard - Demo</div>
-  </nb-layout-footer>
-</nb-layout>
+  </div>
+</main>
