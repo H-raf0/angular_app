@@ -10,6 +10,8 @@ TO DO:
 
 // the front verify that the input is correct but not the back end
 
+// conflit between front and back end in stocks graph, maybe more
+
 features/
 tasks/  
  pages/

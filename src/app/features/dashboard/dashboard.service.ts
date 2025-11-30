@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ENVIRONMENT } from '~core/tokens/environment.token';
 
 export interface Stock {
   id: string;
@@ -19,6 +21,8 @@ export interface Portfolio {
   providedIn: 'root',
 })
 export class DashboardService {
+  private readonly http = inject(HttpClient);
+  private readonly environment = inject(ENVIRONMENT);
   private mockStocks: Stock[] = [
     {
       id: '1',
@@ -74,13 +78,22 @@ export class DashboardService {
    * `return this.http.get<Stock[]>('/api/stocks').toPromise();`
    */
   async fetchStocksFromBackend(): Promise<Stock[]> {
-    // simulate network latency
-    await new Promise((r) => setTimeout(r, 200));
+    const url = `${this.environment.apiBaseUrl}/api/stocks`;
+    try {
+      const result = await firstValueFrom(this.http.get<Stock[]>(url));
+      if (result && Array.isArray(result)) {
+        // update local cache
+        this.mockStocks = result;
+        return result;
+      }
+    } catch {
+      // ignore and fall back to mock data
+    }
 
-    // mutate mockStocks with small random fluctuations to simulate live updates
+    // fallback: small local perturbation to keep UI lively
+    await new Promise((r) => setTimeout(r, 200));
     this.mockStocks = this.mockStocks.map((s) => {
       const prev = s.price;
-      // random fluctuation +/- ~1%
       const rnd = (Math.random() - 0.5) * 0.02;
       const newPrice = Math.round(prev * (1 + rnd) * 100) / 100;
       const priceHistory = [...s.priceHistory, newPrice].slice(-20);
@@ -96,32 +109,44 @@ export class DashboardService {
   }
 
   addMoney(amount: number): void {
-    const current = this.portfolioSubject.value;
-    this.portfolioSubject.next({
-      ...current,
-      balance: current.balance + amount,
-    });
+    // try to persist on backend; fall back to local update
+    const url = `${this.environment.apiBaseUrl}/api/portfolio/addMoney`;
+    void firstValueFrom(this.http.post<{ balance: number; stocks: Record<string, number> }>(url, { amount }))
+      .then((res) => {
+        this.portfolioSubject.next({ balance: res.balance, stocks: res.stocks });
+      })
+      .catch(() => {
+        const current = this.portfolioSubject.value;
+        this.portfolioSubject.next({
+          ...current,
+          balance: current.balance + amount,
+        });
+      });
   }
 
   buyStock(stockId: string, quantity: number): boolean {
+    // Optimistic local check; delegate actual operation to backend
     const stock = this.mockStocks.find((s) => s.id === stockId);
     if (!stock) return false;
 
     const cost = stock.price * quantity;
     const current = this.portfolioSubject.value;
-
     if (current.balance < cost) return false;
 
-    const symbol = stock.symbol;
-    const updatedStocks = { ...current.stocks };
-    updatedStocks[symbol] = (updatedStocks[symbol] || 0) + quantity;
-
-    this.portfolioSubject.next({
-      balance: current.balance - cost,
-      stocks: updatedStocks,
-    });
-    // Simulate a price impact when buying, proportional to quantity
-    this.applyPriceImpact(stock, 'buy', quantity);
+    const url = `${this.environment.apiBaseUrl}/api/portfolio/buy`;
+    // fire-and-forget: backend will validate; update local state optimistically
+    void firstValueFrom(this.http.post<{ balance: number; stocks: Record<string, number> }>(url, { stockId, quantity }))
+      .then((res) => {
+        this.portfolioSubject.next({ balance: res.balance, stocks: res.stocks });
+      })
+      .catch(() => {
+        // revert or ignore; keep optimistic update locally
+        const symbol = stock.symbol;
+        const updatedStocks = { ...current.stocks };
+        updatedStocks[symbol] = (updatedStocks[symbol] || 0) + quantity;
+        this.portfolioSubject.next({ balance: current.balance - cost, stocks: updatedStocks });
+        this.applyPriceImpact(stock, 'buy', quantity);
+      });
 
     return true;
   }
@@ -135,20 +160,20 @@ export class DashboardService {
     const owned = current.stocks[symbol] || 0;
     if (owned < quantity) return false;
 
-    const proceeds = stock.price * quantity;
-    const updatedStocks = { ...current.stocks };
-    updatedStocks[symbol] = owned - quantity;
-    if (updatedStocks[symbol] <= 0) {
-      delete updatedStocks[symbol];
-    }
-
-    this.portfolioSubject.next({
-      balance: current.balance + proceeds,
-      stocks: updatedStocks,
-    });
-
-    // Simulate a price impact when selling, proportional to quantity
-    this.applyPriceImpact(stock, 'sell', quantity);
+    const url = `${this.environment.apiBaseUrl}/api/portfolio/sell`;
+    void firstValueFrom(this.http.post<{ balance: number; stocks: Record<string, number> }>(url, { stockId, quantity }))
+      .then((res) => {
+        this.portfolioSubject.next({ balance: res.balance, stocks: res.stocks });
+      })
+      .catch(() => {
+        // optimistic local update if backend not available
+        const proceeds = stock.price * quantity;
+        const updatedStocks = { ...current.stocks };
+        updatedStocks[symbol] = owned - quantity;
+        if (updatedStocks[symbol] <= 0) delete updatedStocks[symbol];
+        this.portfolioSubject.next({ balance: current.balance + proceeds, stocks: updatedStocks });
+        this.applyPriceImpact(stock, 'sell', quantity);
+      });
 
     return true;
   }

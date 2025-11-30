@@ -37,18 +37,39 @@
   display: flex;
   gap: 1.5rem;
   height: 100%;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+  /* Show companies stacked above main content by default */
+  flex-direction: column;
 }
 
 .sidebar {
-  flex: 0 0 250px;
+  width: 100%;
+  flex: 0 0 auto;
+}
 
-  @media (max-width: 768px) {
-    flex: 0 0 auto;
-  }
+/* Toggle button for companies */
+.companies-select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  border: 2px solid var(--brand-color-primary);
+  background: var(--page-color);
+  color: var(--text-color-primary);
+  font-size: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.companies-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(220,50,50,0.06);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; border: 0; padding: 0; margin: -1px;
 }
 
 .card {
