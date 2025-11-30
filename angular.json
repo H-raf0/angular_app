@@ -43,15 +43,19 @@
                 "output": "assets"
               }
             ],
-            "styles": ["@shoelace-style/shoelace/dist/themes/light.css", "src/styles/global.scss"],
+            "styles": [
+              "node_modules/@nebular/theme/styles/prebuilt/default.css",
+              "@shoelace-style/shoelace/dist/themes/light.css",
+              "src/styles/global.scss"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
             "budgets": [
               {
                 "type": "initial",
-                "maximumWarning": "600kB",
-                "maximumError": "700kB"
+                "maximumWarning": "1500kB",
+                "maximumError": "2000kB"
               },
               {
                 "type": "anyComponentStyle",

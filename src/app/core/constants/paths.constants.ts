@@ -22,3 +22,7 @@ export const ERROR_PATHS = {
   base: 'error',
   notFound: '404',
 };
+
+export const DASHBOARD_PATHS = {
+  base: 'dashboard',
+};

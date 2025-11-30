@@ -1,5 +1,6 @@
 import {
   AUTHENTICATION_PATHS,
+  DASHBOARD_PATHS,
   ERROR_PATHS,
   ROOT_PATHS,
   TODO_PATHS,
@@ -35,6 +36,12 @@ export const appRoutes: Route[] = [
     path: TODO_PATHS.base,
     loadChildren: async () =>
       import('./features/todo/todo.routes').then((module) => module.TODO_ROUTES),
+    canMatch: [authenticationGuard],
+  },
+  {
+    path: DASHBOARD_PATHS.base,
+    loadChildren: async () =>
+      import('./features/dashboard/dashboard.routes').then((module) => module.DASHBOARD_ROUTES),
     canMatch: [authenticationGuard],
   },
   {
