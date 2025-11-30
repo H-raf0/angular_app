@@ -38,13 +38,20 @@ export class DashboardComponent implements OnInit, OnDestroy {
   portfolio: Portfolio | null = null;
   buyQuantity = 1;
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    // Initialize data from backend (stocks and portfolio)
+    await this.dashboardService.initializeData();
     this.stocks = this.dashboardService.getStocks();
     this.portfolio = this.dashboardService.getPortfolio();
+    
+    // Subscribe to portfolio changes
     this.dashboardService.portfolio$.subscribe((portfolio) => {
       this.portfolio = portfolio;
+      this.cd.markForCheck();
     });
 
+    // Poll every 2 seconds: ONLY refresh stocks data, NOT portfolio
+    // Portfolio updates only when user explicitly buys/sells
     this.pollSub = interval(2000).subscribe(async () => {
       try {
         const updated = await this.dashboardService.fetchStocksFromBackend();
@@ -76,7 +83,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         const success = this.dashboardService.buyStock(stock.id, this.buyQuantity);
         if (success) {
           this.buyQuantity = 1;
-          this.refreshStocks(stock.id);
+          // Show indicator but don't refresh stocks - 2-sec poll will handle graph update
           this.showIndicator('buy');
         }
       }
@@ -88,7 +95,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       const success = this.dashboardService.sellStock(stock.id, this.buyQuantity);
       if (success) {
         this.buyQuantity = 1;
-        this.refreshStocks(stock.id);
+        // Show indicator but don't refresh stocks - 2-sec poll will handle graph update
         this.showIndicator('sell');
       }
     }

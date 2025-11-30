@@ -23,59 +23,50 @@ export interface Portfolio {
 export class DashboardService {
   private readonly http = inject(HttpClient);
   private readonly environment = inject(ENVIRONMENT);
-  private mockStocks: Stock[] = [
-    {
-      id: '1',
-      symbol: 'TECH',
-      name: 'TechCorp',
-      price: 150.25,
-      priceHistory: [120, 125, 130, 135, 140, 145, 148, 150, 152, 150.25],
-      change: 5.2,
-    },
-    {
-      id: '2',
-      symbol: 'FIN',
-      name: 'FinanceInc',
-      price: 95.8,
-      priceHistory: [90, 92, 94, 93, 95, 96, 95.5, 96, 96.5, 95.8],
-      change: 3.1,
-    },
-    {
-      id: '3',
-      symbol: 'ENERGY',
-      name: 'EnergyPlus',
-      price: 78.5,
-      priceHistory: [75, 76, 77, 78, 77.5, 78, 78.2, 78.8, 78.3, 78.5],
-      change: 1.8,
-    },
-    {
-      id: '4',
-      symbol: 'HEALTH',
-      name: 'HealthCare',
-      price: 210.1,
-      priceHistory: [200, 202, 205, 207, 208, 209, 210, 210.5, 210.2, 210.1],
-      change: 2.1,
-    },
-  ];
+  
+  private mockStocks: Stock[] = [];
 
   private portfolioSubject = new BehaviorSubject<Portfolio>({
-    balance: 10000,
+    balance: 0,
     stocks: {},
   });
 
   portfolio$: Observable<Portfolio> = this.portfolioSubject.asObservable();
+
+  /**
+   * Fetch stocks and portfolio from backend on service initialization.
+   * This is called once when the component initializes.
+   */
+  async initializeData(): Promise<void> {
+    try {
+      // Fetch stocks
+      const stocksUrl = `${this.environment.apiBaseUrl}/api/stocks`;
+      const stocks = await firstValueFrom(this.http.get<Stock[]>(stocksUrl));
+      if (stocks && Array.isArray(stocks)) {
+        this.mockStocks = stocks;
+      }
+
+      // Fetch portfolio for authenticated user
+      const portfolioUrl = `${this.environment.apiBaseUrl}/api/stocks/portfolio`;
+      const portfolio = await firstValueFrom(this.http.get<Portfolio>(portfolioUrl));
+      if (portfolio) {
+        this.portfolioSubject.next(portfolio);
+      }
+    } catch (error) {
+      console.error('Failed to initialize data:', error);
+      // Fallback to empty state
+      this.mockStocks = [];
+      this.portfolioSubject.next({ balance: 0, stocks: {} });
+    }
+  }
 
   getStocks(): Stock[] {
     return this.mockStocks;
   }
 
   /**
-   * Fetch latest stocks from backend.
-   *
-   * NOTE: This currently simulates a backend call and returns a Promise that
-   * slightly perturbs the current mock prices. When your real backend is
-   * available, replace the body with an `HttpClient` call such as:
-   * `return this.http.get<Stock[]>('/api/stocks').toPromise();`
+   * Fetch latest stocks from backend every 2 seconds.
+   * This updates the stocks data but does NOT update portfolio automatically.
    */
   async fetchStocksFromBackend(): Promise<Stock[]> {
     const url = `${this.environment.apiBaseUrl}/api/stocks`;
@@ -86,22 +77,29 @@ export class DashboardService {
         this.mockStocks = result;
         return result;
       }
-    } catch {
-      // ignore and fall back to mock data
+    } catch (error) {
+      console.error('Failed to fetch stocks:', error);
     }
-
-    // fallback: small local perturbation to keep UI lively
-    await new Promise((r) => setTimeout(r, 200));
-    this.mockStocks = this.mockStocks.map((s) => {
-      const prev = s.price;
-      const rnd = (Math.random() - 0.5) * 0.02;
-      const newPrice = Math.round(prev * (1 + rnd) * 100) / 100;
-      const priceHistory = [...s.priceHistory, newPrice].slice(-20);
-      const change = Math.round(((newPrice - prev) / prev) * 100 * 100) / 100;
-      return { ...s, price: newPrice, priceHistory, change } as Stock;
-    });
-
+    // return current cached stocks on error
     return this.mockStocks;
+  }
+
+  /**
+   * Fetch portfolio for authenticated user.
+   * Call this to refresh portfolio after buy/sell operations.
+   */
+  async fetchPortfolioFromBackend(): Promise<Portfolio | null> {
+    const url = `${this.environment.apiBaseUrl}/api/stocks/portfolio`;
+    try {
+      const result = await firstValueFrom(this.http.get<Portfolio>(url));
+      if (result) {
+        this.portfolioSubject.next(result);
+        return result;
+      }
+    } catch (error) {
+      console.error('Failed to fetch portfolio:', error);
+    }
+    return null;
   }
 
   getPortfolio(): Portfolio {
@@ -109,23 +107,19 @@ export class DashboardService {
   }
 
   addMoney(amount: number): void {
-    // try to persist on backend; fall back to local update
-    const url = `${this.environment.apiBaseUrl}/api/portfolio/addMoney`;
-    void firstValueFrom(this.http.post<{ balance: number; stocks: Record<string, number> }>(url, { amount }))
+    const url = `${this.environment.apiBaseUrl}/api/stocks/portfolio/addMoney`;
+    void firstValueFrom(this.http.post<Portfolio>(url, { amount }))
       .then((res) => {
-        this.portfolioSubject.next({ balance: res.balance, stocks: res.stocks });
+        if (res) {
+          this.portfolioSubject.next(res);
+        }
       })
-      .catch(() => {
-        const current = this.portfolioSubject.value;
-        this.portfolioSubject.next({
-          ...current,
-          balance: current.balance + amount,
-        });
+      .catch((error) => {
+        console.error('Failed to add money:', error);
       });
   }
 
   buyStock(stockId: string, quantity: number): boolean {
-    // Optimistic local check; delegate actual operation to backend
     const stock = this.mockStocks.find((s) => s.id === stockId);
     if (!stock) return false;
 
@@ -133,19 +127,15 @@ export class DashboardService {
     const current = this.portfolioSubject.value;
     if (current.balance < cost) return false;
 
-    const url = `${this.environment.apiBaseUrl}/api/portfolio/buy`;
-    // fire-and-forget: backend will validate; update local state optimistically
-    void firstValueFrom(this.http.post<{ balance: number; stocks: Record<string, number> }>(url, { stockId, quantity }))
+    const url = `${this.environment.apiBaseUrl}/api/stocks/portfolio/buy`;
+    void firstValueFrom(this.http.post<Portfolio>(url, { stockId, quantity }))
       .then((res) => {
-        this.portfolioSubject.next({ balance: res.balance, stocks: res.stocks });
+        if (res) {
+          this.portfolioSubject.next(res);
+        }
       })
-      .catch(() => {
-        // revert or ignore; keep optimistic update locally
-        const symbol = stock.symbol;
-        const updatedStocks = { ...current.stocks };
-        updatedStocks[symbol] = (updatedStocks[symbol] || 0) + quantity;
-        this.portfolioSubject.next({ balance: current.balance - cost, stocks: updatedStocks });
-        this.applyPriceImpact(stock, 'buy', quantity);
+      .catch((error) => {
+        console.error('Failed to buy stock:', error);
       });
 
     return true;
@@ -160,40 +150,17 @@ export class DashboardService {
     const owned = current.stocks[symbol] || 0;
     if (owned < quantity) return false;
 
-    const url = `${this.environment.apiBaseUrl}/api/portfolio/sell`;
-    void firstValueFrom(this.http.post<{ balance: number; stocks: Record<string, number> }>(url, { stockId, quantity }))
+    const url = `${this.environment.apiBaseUrl}/api/stocks/portfolio/sell`;
+    void firstValueFrom(this.http.post<Portfolio>(url, { stockId, quantity }))
       .then((res) => {
-        this.portfolioSubject.next({ balance: res.balance, stocks: res.stocks });
+        if (res) {
+          this.portfolioSubject.next(res);
+        }
       })
-      .catch(() => {
-        // optimistic local update if backend not available
-        const proceeds = stock.price * quantity;
-        const updatedStocks = { ...current.stocks };
-        updatedStocks[symbol] = owned - quantity;
-        if (updatedStocks[symbol] <= 0) delete updatedStocks[symbol];
-        this.portfolioSubject.next({ balance: current.balance + proceeds, stocks: updatedStocks });
-        this.applyPriceImpact(stock, 'sell', quantity);
+      .catch((error) => {
+        console.error('Failed to sell stock:', error);
       });
 
     return true;
-  }
-
-  private applyPriceImpact(stock: Stock, type: 'buy' | 'sell', quantity = 1): void {
-    const prevPrice = stock.price;
-
-    // Impact scales with quantity but with diminishing returns (sqrt), plus a small random factor.
-    const qtyFactor = Math.sqrt(Math.max(1, quantity));
-    const base = 0.5; // minimum base impact percent
-    const impactPercent = Math.min(30, base + qtyFactor * 0.8 + Math.random() * Math.min(2, qtyFactor * 0.3));
-
-    const factor = type === 'buy' ? 1 + impactPercent / 100 : 1 - impactPercent / 100;
-    const newPrice = Math.round(prevPrice * factor * 100) / 100;
-
-    // push new price to history and keep history length reasonable (retain more points)
-    stock.priceHistory = [...stock.priceHistory, newPrice].slice(-250);
-
-    // update stock change as percentage vs previous
-    stock.change = Math.round(((newPrice - prevPrice) / prevPrice) * 100 * 100) / 100;
-    stock.price = newPrice;
   }
 }
