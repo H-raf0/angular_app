@@ -10,32 +10,90 @@
   </div>
 
   <div class="dashboard-container">
-    <!-- Top Companies List (stacked above content) -->
+    <!-- Left Sidebar: Company List -->
     <div class="sidebar">
       <div class="card">
         <div class="card-header">
           <h3 i18n>Companies</h3>
         </div>
         <div class="card-body">
-          <label for="companies-select" class="visually-hidden">Companies</label>
-          <select
-            id="companies-select"
-            class="companies-select"
-            [(ngModel)]="selectedStockId"
-            (ngModelChange)="onSelectById($event)"
-          >
-            <option [ngValue]="null">-- Select a company --</option>
-            <option *ngFor="let stock of stocks; trackBy: trackByStockId" [ngValue]="stock.id">
-              {{ stock.symbol }} — {{ stock.name }}
-            </option>
-          </select>
+          <ul class="companies-list">
+            <li
+              *ngFor="let stock of stocks; trackBy: trackByStockId"
+              class="company-item-wrapper"
+              [class.active]="selectedStock?.id === stock.id"
+              (click)="selectStock(stock)"
+              role="option"
+              tabindex="0"
+            >
+              <div class="company-item">
+                <strong>{{ stock.symbol }}</strong>
+                <small>{{ stock.name }}</small>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Buy / Sell controls moved to sidebar -->
+      <div class="card" *ngIf="selectedStock">
+        <div class="card-header">
+          <h3 i18n>Trade</h3>
+        </div>
+        <div class="card-body">
+          <div class="stock-summary">
+            <strong>{{ selectedStock.symbol }}</strong>
+            <div class="price">${{ selectedStock.price | number: '1.2-2' }}</div>
+          </div>
+
+          <div class="buy-section">
+            <div class="quantity-input">
+              <label for="quantity" i18n>Quantity:</label>
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                class="input-field"
+                [(ngModel)]="buyQuantity"
+              />
+            </div>
+            <p class="total-cost" i18n>
+              Total Cost: ${{ selectedStock.price * buyQuantity | number: '1.2-2' }}
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary"
+              i18n
+              [disabled]="buyQuantity <= 0 || selectedStock.price * buyQuantity > (portfolio?.balance || 0)"
+              (click)="buyStock(selectedStock)"
+            >
+              🛒 Buy
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              i18n
+              [disabled]="!canSell()"
+              (click)="sellStock(selectedStock)"
+            >
+              💸 Sell
+            </button>
+          </div>
+
+          <div class="holdings" *ngIf="portfolio && portfolio.stocks[selectedStock.symbol]">
+            <h4 i18n>Your Holdings</h4>
+            <p i18n>
+              You own {{ portfolio.stocks[selectedStock.symbol] }} shares worth {{
+                selectedStock.price * portfolio.stocks[selectedStock.symbol] | number: '1.2-2'
+              }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Main Content: Stock Details (below the companies list) -->
-    <div class="main-content" style="width:100%;">
-      @if (selectedStock) {
+    <!-- Main Content: Stock Details -->
+    <div class="main-content">
+      <div *ngIf="selectedStock; else emptyState">
         <div class="card">
           <div class="card-header">
             <div class="stock-header">
@@ -127,64 +185,17 @@
                 </g>
               </svg>
             </div>
-
-            <!-- Buy Stock Section -->
-            <div class="buy-section">
-              <div class="quantity-input">
-                <label for="quantity" i18n>Quantity:</label>
-                <input
-                  id="quantity"
-                  type="number"
-                  min="1"
-                  class="input-field"
-                  [(ngModel)]="buyQuantity"
-                />
-              </div>
-              <p class="total-cost" i18n>
-                Total Cost: ${{ selectedStock.price * buyQuantity | number: '1.2-2' }}
-              </p>
-              <button
-                type="button"
-                class="btn btn-primary"
-                i18n
-                [disabled]="
-                  buyQuantity <= 0 || selectedStock.price * buyQuantity > (portfolio?.balance || 0)
-                "
-                (click)="buyStock(selectedStock)"
-              >
-                🛒 Buy
-              </button>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                i18n
-                [disabled]="!canSell()"
-                (click)="sellStock(selectedStock)"
-              >
-                💸 Sell
-              </button>
-            </div>
-
-            <!-- Portfolio Holdings -->
-            @if (portfolio && portfolio.stocks[selectedStock.symbol]) {
-              <div class="holdings">
-                <h4 i18n>Your Holdings</h4>
-                <p i18n>
-                  You own {{ portfolio.stocks[selectedStock.symbol] }} shares worth ${{
-                    selectedStock.price * portfolio.stocks[selectedStock.symbol] | number: '1.2-2'
-                  }}
-                </p>
-              </div>
-            }
           </div>
         </div>
-      } @else {
+      </div>
+
+      <ng-template #emptyState>
         <div class="card">
           <div class="card-body">
             <p class="empty-state" i18n>Select a company from the list to view details</p>
           </div>
         </div>
-      }
+      </ng-template>
     </div>
   </div>
 </main>

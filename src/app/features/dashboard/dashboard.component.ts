@@ -37,10 +37,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   selectedStock: Stock | null = null;
   portfolio: Portfolio | null = null;
   buyQuantity = 1;
-  // Controls visibility of the companies dropdown
-  companiesOpen = false;
-  // ID used by the native select control
-  selectedStockId: string | number | null = null;
 
   ngOnInit(): void {
     this.stocks = this.dashboardService.getStocks();
@@ -71,18 +67,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   selectStock(stock: Stock): void {
     this.selectedStock = stock;
     this.buyQuantity = 1;
-    this.selectedStockId = stock?.id ?? null;
-  }
-
-  toggleCompanies(): void {
-    this.companiesOpen = !this.companiesOpen;
-    this.cd.markForCheck();
-  }
-
-  onSelectById(id: string | number | null): void {
-    if (id == null) return;
-    const s = this.stocks.find((st) => st.id == id);
-    if (s) this.selectStock(s);
   }
 
   buyStock(stock: Stock): void {
