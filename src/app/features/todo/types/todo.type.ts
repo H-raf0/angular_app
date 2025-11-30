@@ -42,4 +42,3 @@ export type UpdateTodoRequest = {
   dueDate?: string;
   tags?: string[];
 };
-

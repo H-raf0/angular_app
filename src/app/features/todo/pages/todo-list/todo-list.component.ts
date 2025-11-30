@@ -6,13 +6,22 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TodoService } from '~features/todo/services/todo.service';
 import { translations } from '~locale/translations';
 import { TrimDirective } from '~shared/directives/trim.directive';
 import type { TaskPriority, TaskStatus, UpdateTodoRequest } from '~features/todo/types/todo.type';
-import { TaskPriority as TaskPriorityEnum, TaskStatus as TaskStatusEnum } from '~features/todo/types/todo.type';
+import {
+  TaskPriority as TaskPriorityEnum,
+  TaskStatus as TaskStatusEnum,
+} from '~features/todo/types/todo.type';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -25,7 +34,9 @@ import '@shoelace-style/shoelace/dist/components/tag/tag.js';
 import '@shoelace-style/shoelace/dist/components/details/details.js';
 
 // Type declaration for $localize (provided by @angular/localize)
-declare const $localize: typeof import('@angular/localize').loadTranslations extends (...args: any[]) => any
+declare const $localize: typeof import('@angular/localize').loadTranslations extends (
+  ...args: any[]
+) => any
   ? (template: TemplateStringsArray, ...substitutions: any[]) => string
   : (template: TemplateStringsArray, ...substitutions: any[]) => string;
 
@@ -191,7 +202,9 @@ export class TodoListComponent {
       return;
     }
 
-    const tags = this.tagsArray.controls.map((control) => control.value.trim()).filter((tag) => tag);
+    const tags = this.tagsArray.controls
+      .map((control) => control.value.trim())
+      .filter((tag) => tag);
 
     const description = this.descriptionControl.value.trim();
     const dueDate = this.dueDateControl.value;
@@ -243,7 +256,9 @@ export class TodoListComponent {
     if (!tagValue) return;
 
     // Check if tag already exists
-    const existingTags = this.tagsArray.controls.map((control) => control.value.trim().toLowerCase());
+    const existingTags = this.tagsArray.controls.map((control) =>
+      control.value.trim().toLowerCase(),
+    );
     if (existingTags.includes(tagValue.toLowerCase())) {
       this.newTagControl.setValue('');
       return;
@@ -318,9 +333,10 @@ export class TodoListComponent {
 
   isOverdue(dueDate?: string): boolean {
     if (!dueDate) return false;
-    return new Date(dueDate) < new Date() && !this.todos().find((t) => t.dueDate === dueDate)?.completed;
+    return (
+      new Date(dueDate) < new Date() && !this.todos().find((t) => t.dueDate === dueDate)?.completed
+    );
   }
-
 
   getPriorityLabel(priority: TaskPriority): string {
     switch (priority) {
@@ -346,4 +362,3 @@ export class TodoListComponent {
     }
   }
 }
-

@@ -7,7 +7,10 @@ import type {
   TaskPriority,
   TaskStatus,
 } from '~features/todo/types/todo.type';
-import { TaskPriority as TaskPriorityEnum, TaskStatus as TaskStatusEnum } from '~features/todo/types/todo.type';
+import {
+  TaskPriority as TaskPriorityEnum,
+  TaskStatus as TaskStatusEnum,
+} from '~features/todo/types/todo.type';
 
 const TODOS_STORAGE_KEY = 'todos';
 
@@ -79,9 +82,7 @@ export class TodoService {
       }
     }
 
-    this._todos.update((todos) =>
-      todos.map((t) => (t.id === id ? updatedTodo : t)),
-    );
+    this._todos.update((todos) => todos.map((t) => (t.id === id ? updatedTodo : t)));
     return updatedTodo;
   }
 
@@ -118,9 +119,7 @@ export class TodoService {
 
   getOverdueTasks(): Todo[] {
     const now = new Date().toISOString();
-    return this._todos().filter(
-      (todo) => todo.dueDate && !todo.completed && todo.dueDate < now,
-    );
+    return this._todos().filter((todo) => todo.dueDate && !todo.completed && todo.dueDate < now);
   }
 
   getAllTags(): string[] {
@@ -144,13 +143,16 @@ export class TodoService {
     }
   }
 
-  private migrateTodo(todo: Partial<Todo> & { id: string; title: string; completed: boolean }): Todo {
+  private migrateTodo(
+    todo: Partial<Todo> & { id: string; title: string; completed: boolean },
+  ): Todo {
     return {
       id: todo.id,
       title: todo.title,
       completed: todo.completed,
       priority: todo.priority ?? TaskPriorityEnum.MEDIUM,
-      status: todo.status ?? (todo.completed ? TaskStatusEnum.COMPLETED : TaskStatusEnum.NOT_STARTED),
+      status:
+        todo.status ?? (todo.completed ? TaskStatusEnum.COMPLETED : TaskStatusEnum.NOT_STARTED),
       ...(todo.description && { description: todo.description }),
       ...(todo.dueDate && { dueDate: todo.dueDate }),
       tags: todo.tags ?? [],
@@ -167,4 +169,3 @@ export class TodoService {
     }
   }
 }
-

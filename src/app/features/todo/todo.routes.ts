@@ -7,4 +7,3 @@ export const TODO_ROUTES: Route[] = [
     component: TodoListComponent,
   },
 ];
-

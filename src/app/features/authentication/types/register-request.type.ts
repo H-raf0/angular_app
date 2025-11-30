@@ -15,6 +15,3 @@ export type RegisterRequest = {
   terms: boolean;
 };
 */
-
-
-

@@ -41,75 +41,69 @@ export class UserService {
   }
 
   private mockGetMe(): Observable<User> {
-    return of(null).pipe(
-      delay(300),
-      () => {
-        return new Observable<User>((subscriber) => {
-          const token = this.storageService?.getItem(ACCESS_TOKEN_KEY);
-          if (!token) {
-            subscriber.error({
-              error: {
-                internalCode: 401,
-                message: 'Not authenticated',
-              },
-            });
-            return;
-          }
+    return of(null).pipe(delay(300), () => {
+      return new Observable<User>((subscriber) => {
+        const token = this.storageService?.getItem(ACCESS_TOKEN_KEY);
+        if (!token) {
+          subscriber.error({
+            error: {
+              internalCode: 401,
+              message: 'Not authenticated',
+            },
+          });
+          return;
+        }
 
-          const userId = this.extractUserIdFromToken(token);
-          const user = this.mockAuthStorage.getUserById(userId);
+        const userId = this.extractUserIdFromToken(token);
+        const user = this.mockAuthStorage.getUserById(userId);
 
-          if (!user) {
-            subscriber.error({
-              error: {
-                internalCode: 404,
-                message: 'User not found',
-              },
-            });
-            return;
-          }
+        if (!user) {
+          subscriber.error({
+            error: {
+              internalCode: 404,
+              message: 'User not found',
+            },
+          });
+          return;
+        }
 
-          subscriber.next(user);
-          subscriber.complete();
-        });
-      },
-    );
+        subscriber.next(user);
+        subscriber.complete();
+      });
+    });
   }
 
   private mockUpdateUser(updateUserRequest: UpdateUserRequest): Observable<User> {
-    return of(null).pipe(
-      delay(300),
-      () => {
-        return new Observable<User>((subscriber) => {
-          const token = this.storageService?.getItem(ACCESS_TOKEN_KEY);
-          if (!token) {
-            subscriber.error({
-              error: {
-                internalCode: 401,
-                message: 'Not authenticated',
-              },
-            });
-            return;
-          }
+    return of(null).pipe(delay(300), () => {
+      return new Observable<User>((subscriber) => {
+        const token = this.storageService?.getItem(ACCESS_TOKEN_KEY);
+        if (!token) {
+          subscriber.error({
+            error: {
+              internalCode: 401,
+              message: 'Not authenticated',
+            },
+          });
+          return;
+        }
 
-          const userId = this.extractUserIdFromToken(token);
-          const updatedUser = this.mockAuthStorage.updateUser(userId, updateUserRequest);
+        const userId = this.extractUserIdFromToken(token);
+        const updatedUser = this.mockAuthStorage.updateUser(userId, updateUserRequest);
 
-          if (!updatedUser) {
-            subscriber.error({
-              error: {
-                internalCode: 404,
-                message: 'User not found',
-              },
-            });
-            return;
-          }
+        if (!updatedUser) {
+          subscriber.error({
+            error: {
+              internalCode: 404,
+              message: 'User not found',
+            },
+          });
+          return;
+        }
 
-          subscriber.next(updatedUser);
-          subscriber.complete();
-        });
-      },
-    );
+        subscriber.next(updatedUser);
+        subscriber.complete();
+      });
+    });
   }
 
   private extractUserIdFromToken(token: string): string {

@@ -79,28 +79,28 @@ export class MyAccountComponent implements OnInit {
       .subscribe({
         next: (user: User) => {
           this.user = user;
-            // Guard against missing/null fields from the backend. Backend returns
-            // `username` (or `username` as `username`/`Username` in JSON) while our
-            // frontend `User` type uses `name`. Support both fields.
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const returned = this.user as any;
-            const resolvedName = returned.name ?? returned.username ?? '';
+          // Guard against missing/null fields from the backend. Backend returns
+          // `username` (or `username` as `username`/`Username` in JSON) while our
+          // frontend `User` type uses `name`. Support both fields.
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const returned = this.user as any;
+          const resolvedName = returned.name ?? returned.username ?? '';
 
-            this.name.setValue(resolvedName);
-            this.email.setValue(returned.email ?? '');
+          this.name.setValue(resolvedName);
+          this.email.setValue(returned.email ?? '');
 
-            // Normalize language values that may come from backend (eg. "en_us" or "EN_US")
-            const rawLang = returned.language as string | undefined | null;
-            const normalize = (l?: string | null) => {
-              if (!l) return Language.EN_US;
-              const parts = l.split(/[-_]/);
-              const lang = parts[0]?.toLowerCase() ?? 'en';
-              const region = (parts[1] ?? '').toUpperCase();
-              const normalized = region ? `${lang}-${region}` : `${lang}-US`;
-              return normalized === Language.FR_FR ? Language.FR_FR : Language.EN_US;
-            };
+          // Normalize language values that may come from backend (eg. "en_us" or "EN_US")
+          const rawLang = returned.language as string | undefined | null;
+          const normalize = (l?: string | null) => {
+            if (!l) return Language.EN_US;
+            const parts = l.split(/[-_]/);
+            const lang = parts[0]?.toLowerCase() ?? 'en';
+            const region = (parts[1] ?? '').toUpperCase();
+            const normalized = region ? `${lang}-${region}` : `${lang}-US`;
+            return normalized === Language.FR_FR ? Language.FR_FR : Language.EN_US;
+          };
 
-            this.language.setValue(normalize(rawLang));
+          this.language.setValue(normalize(rawLang));
         },
         error: () => {
           this.alertService.createErrorAlert(translations.genericErrorAlert);
@@ -120,10 +120,10 @@ export class MyAccountComponent implements OnInit {
     const formValue = this.updateUserForm.getRawValue();
     this.userService
       .updateUser({
-          // Backend expects `username` property
-          username: formValue.name!,
-          language: formValue.language!,
-          password: formValue.password!,
+        // Backend expects `username` property
+        username: formValue.name!,
+        language: formValue.language!,
+        password: formValue.password!,
       })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({

@@ -11,9 +11,7 @@ import type {
   RefreshTokenResponse,
   RefreshTokenResponseData,
 } from '~features/authentication/types/refresh-token.response.type';
-import type {
-  RegisterResponse,
-} from '~features/authentication/types/register-response.type';
+import type { RegisterResponse } from '~features/authentication/types/register-response.type';
 import type { RegisterFormValue } from '~features/authentication/pages/register/register-form.types';
 import type { User } from '~features/authentication/types/user.type';
 import type { AuthTokens } from '~features/authentication/types/authentication.types';
@@ -71,10 +69,12 @@ export class AuthenticationService {
 
     return this.handleAuthResponse(
       this.http.post<LoginResponse>(this.endpoints.auth.v1.login, payload),
-    ).pipe(map((res) => {
-      const body = (res as any).data ?? (res as any);
-      return body.user as User;
-    }));
+    ).pipe(
+      map((res) => {
+        const body = (res as any).data ?? (res as any);
+        return body.user as User;
+      }),
+    );
   }
 
   refreshToken(): Observable<RefreshTokenResponseData> {

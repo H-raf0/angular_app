@@ -22,9 +22,14 @@ interface StoredUser {
 export class MockAuthStorageService {
   private readonly storageService = inject(LOCAL_STORAGE);
 
-  registerUser(email: string, password: string, name: string, language: Language = DEFAULT_LANGUAGE): User {
+  registerUser(
+    email: string,
+    password: string,
+    name: string,
+    language: Language = DEFAULT_LANGUAGE,
+  ): User {
     const users = this.getAllUsers();
-    
+
     // Check if user already exists
     if (users.find((u) => u.email.toLowerCase() === email.toLowerCase())) {
       throw new Error('User already exists');
@@ -67,7 +72,10 @@ export class MockAuthStorageService {
 
   // Accept both `name` and `username` keys so client and server naming
   // mismatches don't break mock updates.
-  updateUser(id: string, updates: { name?: string; username?: string; language?: Language }): User | null {
+  updateUser(
+    id: string,
+    updates: { name?: string; username?: string; language?: Language },
+  ): User | null {
     const users = this.getAllUsers();
     const userIndex = users.findIndex((u) => u.id === id);
 
@@ -125,4 +133,3 @@ export class MockAuthStorageService {
     return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
   }
 }
-
