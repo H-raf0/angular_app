@@ -65,17 +65,27 @@ export class DashboardService {
   }
 
   /**
-   * Fetch latest stocks from backend every 2 seconds.
-   * This updates the stocks data but does NOT update portfolio automatically.
+   * Fetch latest stocks from backend and update in-place.
+   * This updates individual stock objects instead of replacing the array,
+   * which prevents unnecessary re-renders in the component.
    */
   async fetchStocksFromBackend(): Promise<Stock[]> {
     const url = `${this.environment.apiBaseUrl}/api/stocks`;
     try {
       const result = await firstValueFrom(this.http.get<Stock[]>(url));
       if (result && Array.isArray(result)) {
-        // update local cache
-        this.mockStocks = result;
-        return result;
+        // Update existing stocks in-place instead of replacing the array
+        // This prevents the component from re-rendering the entire list
+        for (let i = 0; i < this.mockStocks.length; i++) {
+          const updated = result.find((s) => s.id === this.mockStocks[i].id);
+          if (updated) {
+            // Update properties in-place
+            this.mockStocks[i].price = updated.price;
+            this.mockStocks[i].change = updated.change;
+            this.mockStocks[i].priceHistory = updated.priceHistory;
+          }
+        }
+        return this.mockStocks;
       }
     } catch (error) {
       console.error('Failed to fetch stocks:', error);

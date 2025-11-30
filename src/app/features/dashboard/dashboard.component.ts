@@ -50,16 +50,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.cd.markForCheck();
     });
 
-    // Poll every 2 seconds: ONLY refresh stocks data, NOT portfolio
+    // Poll every 5 seconds: ONLY refresh stocks data, NOT portfolio
     // Portfolio updates only when user explicitly buys/sells
-    this.pollSub = interval(2000).subscribe(async () => {
+    // Service now updates stocks in-place, so we don't replace the array
+    this.pollSub = interval(5000).subscribe(async () => {
       try {
-        const updated = await this.dashboardService.fetchStocksFromBackend();
-        this.stocks = updated;
-        if (this.selectedStock) {
-          const s = this.stocks.find((st) => st.id === this.selectedStock!.id);
-          if (s) this.selectedStock = s;
-        }
+        await this.dashboardService.fetchStocksFromBackend();
+        // No need to reassign this.stocks - service updates in-place
+        // This keeps the same array reference, preventing list re-renders
         this.cd.markForCheck();
       } catch (e) {
         // ignore errors
